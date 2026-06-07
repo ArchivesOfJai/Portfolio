@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import DP from '../../assets/Jaisingh_img.jpg';
 
 const About = () => {
   return (
@@ -22,7 +23,7 @@ const About = () => {
             viewport={{ once: true }}
           >
             <img
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=500&fit=crop"
+              src={DP}
               alt="Profile"
               className="rounded-lg"
             />
@@ -36,7 +37,7 @@ const About = () => {
             className="space-y-6"
           >
             <p className="text-lg text-gray-300 leading-relaxed">
-              Hi! I'm a passionate full-stack developer with 5+ years of experience building
+              Hi! I'm a passionate full-stack developer with hands-on experience building
               web applications. I specialize in creating beautiful, responsive interfaces
               and robust backend systems.
             </p>

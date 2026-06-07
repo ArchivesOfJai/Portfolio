@@ -33,7 +33,7 @@ const Navbar = ({ activeSection, setActiveSection }) => {
             className="text-2xl font-bold text-red-600 hover:text-red-400 transition-colors"
             whileHover={{ scale: 1.05 }}
           >
-            Portfolio
+            Jai Singh
           </motion.button>
 
           <div className="hidden md:flex space-x-1">
