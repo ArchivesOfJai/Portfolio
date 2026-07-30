@@ -22,7 +22,12 @@ export default function App() {
   const [projects, setProjects] = useState([]);
   const [skills, setSkills] = useState([]);
   const [experiences, setExperiences] = useState([]);
-  const [stats, setStats] = useState(null);
+  const [stats, setStats] = useState({
+    commits:0,
+    uptime:0,
+    repos:0,
+    codeLines:0,
+  });
 
   const loadPortfolioData = () => {
     // Fetch Projects

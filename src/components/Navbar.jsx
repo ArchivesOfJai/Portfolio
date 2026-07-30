@@ -124,7 +124,7 @@ export default function Navbar({ isMatrixMode, setIsMatrixMode, backendStatus, o
               <Terminal size={18} color="var(--neon-cyan)" />
             </div>
             <span>
-              &lt;<span className="text-cyan">Geek</span>.Architect /&gt;
+              &lt;<span className="text-cyan">Geek</span>.Jai_Prakash_Singh/&gt;
             </span>
           </a>
 
@@ -305,7 +305,7 @@ export default function Navbar({ isMatrixMode, setIsMatrixMode, backendStatus, o
             box-shadow: 0 0 8px var(--neon-cyan);
             border-radius: 2px;
           }
-          @media (max-width: 1200px) {
+          @media (max-width: 1250px) {
             .desktop-nav { display: none !important; }
             .desktop-only-controls { display: none !important; }
             .mobile-hamburger-btn { display: flex !important; }
