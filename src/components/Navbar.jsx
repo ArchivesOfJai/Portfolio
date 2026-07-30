@@ -10,11 +10,11 @@ export default function Navbar({ isMatrixMode, setIsMatrixMode, backendStatus, o
   const [activeSection, setActiveSection] = useState('hero');
 
   const navItems = [
-    { id: 'about', label: '// About & Architecture' },
-    { id: 'skills', label: '// Skills Matrix' },
-    { id: 'projects', label: '// Repository Vault' },
-    { id: 'timeline', label: '// Career Changelog' },
-    { id: 'contact', label: '// Contact Command Center' }
+    { id: 'about', label: '// About', mobileLabel: '// About & Architecture' },
+    { id: 'skills', label: '// Skills', mobileLabel: '// Skills Matrix' },
+    { id: 'projects', label: '// Vault', mobileLabel: '// Repository Vault' },
+    { id: 'timeline', label: '// Timeline', mobileLabel: '// Career Changelog' },
+    { id: 'contact', label: '// Contact', mobileLabel: '// Contact Command Center' }
   ];
 
   useEffect(() => {
@@ -153,7 +153,7 @@ export default function Navbar({ isMatrixMode, setIsMatrixMode, backendStatus, o
                     fontWeight: isActive ? 600 : 400
                   }}
                 >
-                  {item.label.split(' ')[0]} {/* Show short label on desktop */}
+                  {item.label}
                 </a>
               );
             })}
@@ -303,7 +303,7 @@ export default function Navbar({ isMatrixMode, setIsMatrixMode, backendStatus, o
             box-shadow: 0 0 8px var(--neon-cyan);
             border-radius: 2px;
           }
-          @media (max-width: 820px) {
+          @media (max-width: 1200px) {
             .desktop-nav { display: none !important; }
             .mobile-hamburger-btn { display: flex !important; }
           }
@@ -414,7 +414,7 @@ export default function Navbar({ isMatrixMode, setIsMatrixMode, backendStatus, o
                       padding: '14px 16px'
                     }}
                   >
-                    <span>{item.label}</span>
+                    <span>{item.mobileLabel}</span>
                     <ChevronRight size={18} color={isActive ? 'var(--neon-cyan)' : 'var(--text-muted)'} />
                   </a>
                 );
