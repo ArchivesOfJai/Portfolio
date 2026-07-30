@@ -39,7 +39,7 @@ export default function ProjectsVault({ projects }) {
       </p>
 
       {/* Filter Category Tabs */}
-      <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '36px' }}>
+      <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '28px' }}>
         {categories.map((cat) => (
           <button
             key={cat}
@@ -53,8 +53,8 @@ export default function ProjectsVault({ projects }) {
               background: filterCategory === cat ? 'rgba(0, 243, 255, 0.2)' : 'rgba(255, 255, 255, 0.04)',
               borderColor: filterCategory === cat ? 'var(--neon-cyan)' : 'rgba(255, 255, 255, 0.15)',
               color: filterCategory === cat ? 'var(--neon-cyan)' : 'var(--text-muted)',
-              padding: '6px 16px',
-              fontSize: '0.85rem'
+              padding: '6px 14px',
+              fontSize: '0.8rem'
             }}
           >
             {cat}
@@ -63,13 +63,13 @@ export default function ProjectsVault({ projects }) {
       </div>
 
       {/* Project Cards Grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '28px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
         {(filteredProjects || []).map((project) => (
           <div
             key={project.id || project.slug}
             className="glass-panel"
             style={{
-              borderRadius: '20px',
+              borderRadius: '16px',
               overflow: 'hidden',
               display: 'flex',
               flexDirection: 'column',
@@ -81,7 +81,7 @@ export default function ProjectsVault({ projects }) {
             <div
               style={{
                 position: 'relative',
-                height: '210px',
+                height: 'clamp(160px, 25vh, 210px)',
                 overflow: 'hidden',
                 background: '#05070a'
               }}
@@ -110,48 +110,48 @@ export default function ProjectsVault({ projects }) {
               <div
                 style={{
                   position: 'absolute',
-                  top: '12px',
-                  right: '12px',
+                  top: '10px',
+                  right: '10px',
                   display: 'flex',
-                  gap: '8px'
+                  gap: '6px'
                 }}
               >
-                <span className="glass-pill" style={{ background: 'rgba(7, 9, 14, 0.85)', fontSize: '0.75rem' }}>
+                <span className="glass-pill" style={{ background: 'rgba(7, 9, 14, 0.85)', fontSize: '0.72rem' }}>
                   <Star size={12} color="var(--neon-amber)" />
                   <span>{project.stars}</span>
                 </span>
-                <span className="glass-pill" style={{ background: 'rgba(7, 9, 14, 0.85)', fontSize: '0.75rem' }}>
+                <span className="glass-pill" style={{ background: 'rgba(7, 9, 14, 0.85)', fontSize: '0.72rem' }}>
                   {project.geekRating}
                 </span>
               </div>
             </div>
 
             {/* Content Body */}
-            <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-              <div style={{ fontSize: '0.8rem', color: 'var(--neon-cyan)', fontFamily: 'var(--font-mono)', marginBottom: '6px' }}>
+            <div style={{ padding: 'clamp(16px, 4vw, 24px)', flex: 1, display: 'flex', flexDirection: 'column' }}>
+              <div style={{ fontSize: '0.78rem', color: 'var(--neon-cyan)', fontFamily: 'var(--font-mono)', marginBottom: '4px' }}>
                 // {project.category}
               </div>
 
-              <h3 style={{ fontSize: '1.35rem', fontWeight: 700, marginBottom: '8px' }}>
+              <h3 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: '6px' }}>
                 {project.title}
               </h3>
 
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '20px', flex: 1, lineHeight: 1.5 }}>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', marginBottom: '16px', flex: 1, lineHeight: 1.5 }}>
                 {project.tagline}
               </p>
 
               {/* Tech Tags */}
-              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '20px' }}>
+              <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '16px' }}>
                 {project.techStack.map((tech) => (
                   <span
                     key={tech}
                     style={{
                       fontFamily: 'var(--font-mono)',
-                      fontSize: '0.75rem',
+                      fontSize: '0.72rem',
                       background: 'rgba(255, 255, 255, 0.05)',
                       border: '1px solid rgba(255, 255, 255, 0.1)',
                       color: 'var(--text-main)',
-                      padding: '3px 10px',
+                      padding: '2px 8px',
                       borderRadius: '6px'
                     }}
                   >
@@ -161,8 +161,8 @@ export default function ProjectsVault({ projects }) {
               </div>
 
               {/* Action Footer */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '16px', borderTop: '1px solid rgba(255, 255, 255, 0.08)' }}>
-                <span style={{ fontSize: '0.84rem', color: 'var(--neon-cyan)', fontFamily: 'var(--font-mono)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '12px', borderTop: '1px solid rgba(255, 255, 255, 0.08)' }}>
+                <span style={{ fontSize: '0.8rem', color: 'var(--neon-cyan)', fontFamily: 'var(--font-mono)', display: 'flex', alignItems: 'center', gap: '6px' }}>
                   <Eye size={14} /> Inspect Telemetry
                 </span>
 
@@ -204,7 +204,7 @@ export default function ProjectsVault({ projects }) {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              padding: '24px',
+              padding: '16px',
               overflowY: 'auto'
             }}
             onClick={closeModal}
@@ -216,27 +216,27 @@ export default function ProjectsVault({ projects }) {
                 maxWidth: '750px',
                 maxHeight: '90vh',
                 overflowY: 'auto',
-                borderRadius: '24px',
-                padding: '36px',
+                borderRadius: '20px',
+                padding: 'clamp(18px, 4vw, 32px)',
                 borderColor: 'var(--neon-cyan)',
                 boxShadow: '0 0 60px rgba(0, 243, 255, 0.4), 0 20px 40px rgba(0,0,0,0.8)',
                 background: 'rgba(13, 17, 24, 0.95)'
               }}
               onClick={(e) => e.stopPropagation()}
             >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '20px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px', gap: '12px' }}>
                 <div>
                   <span className="glass-pill" style={{ marginBottom: '8px' }}>
                     <ShieldCheck size={14} color="var(--matrix-green)" />
                     <span>VAULT INSPECTOR // {selectedProject.category}</span>
                   </span>
-                  <h2 style={{ fontSize: '2rem', fontWeight: 800 }}>{selectedProject.title}</h2>
+                  <h2 style={{ fontSize: 'clamp(1.3rem, 4vw, 1.8rem)', fontWeight: 800 }}>{selectedProject.title}</h2>
                 </div>
                 <button
                   onClick={closeModal}
                   style={{ background: 'transparent', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', padding: '4px' }}
                 >
-                  <X size={24} />
+                  <X size={22} />
                 </button>
               </div>
 
@@ -246,23 +246,23 @@ export default function ProjectsVault({ projects }) {
                 onError={(e) => { e.currentTarget.src = '/images/project_cyber_ai.png'; }}
                 style={{
                   width: '100%',
-                  height: '240px',
+                  height: 'clamp(160px, 25vh, 240px)',
                   objectFit: 'cover',
-                  borderRadius: '16px',
-                  marginBottom: '20px',
+                  borderRadius: '14px',
+                  marginBottom: '16px',
                   border: '1px solid rgba(0, 243, 255, 0.3)'
                 }}
               />
 
-              <p style={{ color: 'var(--text-muted)', fontSize: '1rem', lineHeight: 1.6, marginBottom: '24px' }}>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.6, marginBottom: '20px' }}>
                 {selectedProject.description}
               </p>
 
-              <div style={{ marginBottom: '24px' }}>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', color: 'var(--neon-cyan)', marginBottom: '8px' }}>
+              <div style={{ marginBottom: '20px' }}>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', color: 'var(--neon-cyan)', marginBottom: '8px' }}>
                   SYSTEM ARCHITECTURE STACK:
                 </div>
-                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
                   {selectedProject.techStack.map((tech) => (
                     <span key={tech} className="glass-pill">
                       {tech}
@@ -271,12 +271,13 @@ export default function ProjectsVault({ projects }) {
                 </div>
               </div>
 
-              <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
                 <a
                   href={selectedProject.liveUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="btn-cyber"
+                  style={{ flex: '1 1 180px', justifyContent: 'center' }}
                 >
                   <ExternalLink size={18} />
                   <span>Launch Live Demo</span>
@@ -286,6 +287,7 @@ export default function ProjectsVault({ projects }) {
                   target="_blank"
                   rel="noreferrer"
                   className="btn-cyber-outline"
+                  style={{ flex: '1 1 180px', justifyContent: 'center' }}
                 >
                   <Github size={18} />
                   <span>View Repository</span>

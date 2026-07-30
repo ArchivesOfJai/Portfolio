@@ -56,7 +56,7 @@ export default function CodeRunner() {
     <div
       className="glass-panel"
       style={{
-        padding: '24px',
+        padding: 'clamp(16px, 4vw, 24px)',
         borderRadius: '16px',
         borderColor: 'rgba(0, 243, 255, 0.3)'
       }}
@@ -66,17 +66,19 @@ export default function CodeRunner() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          marginBottom: '16px'
+          marginBottom: '14px',
+          flexWrap: 'wrap',
+          gap: '10px'
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: 'var(--matrix-green)' }} />
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.88rem', color: 'var(--neon-cyan)' }}>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.84rem', color: 'var(--neon-cyan)' }}>
             SANDBOX://js_executor.js
           </span>
         </div>
 
-        <div style={{ display: 'flex', gap: '10px' }}>
+        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
           <button
             onClick={resetCode}
             style={{
@@ -90,7 +92,7 @@ export default function CodeRunner() {
               alignItems: 'center',
               gap: '6px',
               fontFamily: 'var(--font-mono)',
-              fontSize: '0.8rem'
+              fontSize: '0.78rem'
             }}
           >
             <RotateCcw size={14} />
@@ -103,14 +105,14 @@ export default function CodeRunner() {
               background: 'linear-gradient(135deg, rgba(0, 255, 102, 0.2), rgba(0, 243, 255, 0.2))',
               border: '1px solid var(--matrix-green)',
               color: 'var(--matrix-green)',
-              padding: '6px 16px',
+              padding: '6px 14px',
               borderRadius: '6px',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
               gap: '6px',
               fontFamily: 'var(--font-mono)',
-              fontSize: '0.8rem',
+              fontSize: '0.78rem',
               fontWeight: 600
             }}
           >
@@ -124,20 +126,20 @@ export default function CodeRunner() {
       <textarea
         value={code}
         onChange={(e) => setCode(e.target.value)}
-        rows={8}
+        rows={7}
         style={{
           width: '100%',
           background: 'rgba(5, 7, 10, 0.9)',
           border: '1px solid rgba(0, 243, 255, 0.15)',
           borderRadius: '8px',
-          padding: '14px',
+          padding: '12px',
           color: '#fff',
           fontFamily: 'var(--font-mono)',
-          fontSize: '0.88rem',
+          fontSize: '0.84rem',
           outline: 'none',
           resize: 'vertical',
           lineHeight: 1.5,
-          marginBottom: '16px'
+          marginBottom: '14px'
         }}
       />
 
@@ -147,12 +149,13 @@ export default function CodeRunner() {
           background: 'rgba(5, 7, 10, 0.95)',
           border: `1px solid ${hasError ? 'rgba(255, 0, 127, 0.5)' : 'rgba(0, 255, 102, 0.25)'}`,
           borderRadius: '8px',
-          padding: '14px',
+          padding: '12px',
           fontFamily: 'var(--font-mono)',
-          fontSize: '0.84rem'
+          fontSize: '0.8rem',
+          overflowX: 'auto'
         }}
       >
-        <div style={{ color: 'var(--text-muted)', marginBottom: '8px', fontSize: '0.76rem' }}>
+        <div style={{ color: 'var(--text-muted)', marginBottom: '6px', fontSize: '0.74rem' }}>
           LIVE OUTPUT CONSOLE:
         </div>
         {logs.map((log, i) => (
@@ -160,7 +163,8 @@ export default function CodeRunner() {
             key={i}
             style={{
               color: hasError ? 'var(--cyber-magenta)' : 'var(--matrix-green)',
-              marginBottom: '4px'
+              marginBottom: '4px',
+              wordBreak: 'break-word'
             }}
           >
             {log}

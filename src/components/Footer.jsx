@@ -13,7 +13,7 @@ export default function Footer() {
       style={{
         background: 'rgba(7, 9, 14, 0.95)',
         borderTop: '1px solid rgba(0, 243, 255, 0.2)',
-        padding: '40px 24px',
+        padding: 'clamp(24px, 4vw, 40px) 16px',
         position: 'relative',
         zIndex: 2
       }}
@@ -26,18 +26,18 @@ export default function Footer() {
           alignItems: 'center',
           justifyContent: 'space-between',
           flexWrap: 'wrap',
-          gap: '20px'
+          gap: '16px'
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontFamily: 'var(--font-mono)' }}>
-          <Terminal size={18} color="var(--neon-cyan)" />
-          <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontFamily: 'var(--font-mono)' }}>
+          <Terminal size={16} color="var(--neon-cyan)" style={{ flexShrink: 0 }} />
+          <span style={{ fontSize: 'clamp(0.78rem, 2.5vw, 0.88rem)', color: 'var(--text-muted)' }}>
             &copy; {new Date().getFullYear()} Geek.Architect // Built with MERN & Parallax Glass Engine
           </span>
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-          <span className="glass-pill" style={{ fontSize: '0.78rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <span className="glass-pill" style={{ fontSize: '0.72rem' }}>
             BUILD: v2.4.0-RELEASE
           </span>
 
@@ -48,9 +48,9 @@ export default function Footer() {
               background: 'rgba(0, 243, 255, 0.1)',
               border: '1px solid var(--neon-cyan)',
               color: 'var(--neon-cyan)',
-              width: '38px',
-              height: '38px',
-              borderRadius: '10px',
+              width: '36px',
+              height: '36px',
+              borderRadius: '9px',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
@@ -58,7 +58,7 @@ export default function Footer() {
               transition: 'all 0.3s ease'
             }}
           >
-            <ArrowUp size={18} />
+            <ArrowUp size={16} />
           </button>
         </div>
       </div>

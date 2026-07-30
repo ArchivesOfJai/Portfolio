@@ -55,17 +55,17 @@ export default function ContactSection() {
         Have a project, role, or architecture query? Transmit your payload directly to the API endpoint.
       </p>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px' }} className="contact-grid">
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }} className="contact-grid">
         {/* Left Column: Direct Glass Form */}
-        <div className="glass-panel" style={{ padding: '36px', borderRadius: '20px' }}>
-          <h3 style={{ fontSize: '1.4rem', fontWeight: 700, marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <Send size={20} color="var(--neon-cyan)" />
+        <div className="glass-panel" style={{ padding: 'clamp(20px, 4vw, 32px)', borderRadius: '16px' }}>
+          <h3 style={{ fontSize: 'clamp(1.15rem, 3.5vw, 1.4rem)', fontWeight: 700, marginBottom: '18px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <Send size={18} color="var(--neon-cyan)" />
             <span>Encrypted Message Payload</span>
           </h3>
 
-          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', marginBottom: '6px' }}>
+              <label style={{ display: 'block', fontSize: '0.8rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', marginBottom: '6px' }}>
                 // SENDER NAME *
               </label>
               <input
@@ -79,17 +79,17 @@ export default function ContactSection() {
                   background: 'rgba(5, 7, 10, 0.8)',
                   border: '1px solid rgba(0, 243, 255, 0.2)',
                   borderRadius: '10px',
-                  padding: '12px 16px',
+                  padding: '10px 14px',
                   color: '#fff',
                   fontFamily: 'var(--font-sans)',
-                  fontSize: '0.95rem',
+                  fontSize: '0.92rem',
                   outline: 'none'
                 }}
               />
             </div>
 
             <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', marginBottom: '6px' }}>
+              <label style={{ display: 'block', fontSize: '0.8rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', marginBottom: '6px' }}>
                 // SENDER EMAIL *
               </label>
               <input
@@ -103,17 +103,17 @@ export default function ContactSection() {
                   background: 'rgba(5, 7, 10, 0.8)',
                   border: '1px solid rgba(0, 243, 255, 0.2)',
                   borderRadius: '10px',
-                  padding: '12px 16px',
+                  padding: '10px 14px',
                   color: '#fff',
                   fontFamily: 'var(--font-sans)',
-                  fontSize: '0.95rem',
+                  fontSize: '0.92rem',
                   outline: 'none'
                 }}
               />
             </div>
 
             <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', marginBottom: '6px' }}>
+              <label style={{ display: 'block', fontSize: '0.8rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', marginBottom: '6px' }}>
                 // SUBJECT / REASON
               </label>
               <input
@@ -126,17 +126,17 @@ export default function ContactSection() {
                   background: 'rgba(5, 7, 10, 0.8)',
                   border: '1px solid rgba(0, 243, 255, 0.2)',
                   borderRadius: '10px',
-                  padding: '12px 16px',
+                  padding: '10px 14px',
                   color: '#fff',
                   fontFamily: 'var(--font-sans)',
-                  fontSize: '0.95rem',
+                  fontSize: '0.92rem',
                   outline: 'none'
                 }}
               />
             </div>
 
             <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', marginBottom: '6px' }}>
+              <label style={{ display: 'block', fontSize: '0.8rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', marginBottom: '6px' }}>
                 // MESSAGE PAYLOAD *
               </label>
               <textarea
@@ -150,10 +150,10 @@ export default function ContactSection() {
                   background: 'rgba(5, 7, 10, 0.8)',
                   border: '1px solid rgba(0, 243, 255, 0.2)',
                   borderRadius: '10px',
-                  padding: '12px 16px',
+                  padding: '10px 14px',
                   color: '#fff',
                   fontFamily: 'var(--font-sans)',
-                  fontSize: '0.95rem',
+                  fontSize: '0.92rem',
                   outline: 'none',
                   resize: 'vertical'
                 }}
@@ -163,10 +163,10 @@ export default function ContactSection() {
             {statusMsg && (
               <div
                 style={{
-                  padding: '12px 16px',
+                  padding: '10px 14px',
                   borderRadius: '8px',
                   fontFamily: 'var(--font-mono)',
-                  fontSize: '0.85rem',
+                  fontSize: '0.82rem',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '8px',
@@ -180,7 +180,7 @@ export default function ContactSection() {
               </div>
             )}
 
-            <button type="submit" disabled={loading} className="btn-cyber" style={{ marginTop: '8px', justifyContent: 'center' }}>
+            <button type="submit" disabled={loading} className="btn-cyber" style={{ marginTop: '6px', justifyContent: 'center' }}>
               <Send size={18} />
               <span>{loading ? 'DISPATCHING PAYLOAD...' : 'TRANSMIT MESSAGE'}</span>
             </button>
@@ -188,33 +188,34 @@ export default function ContactSection() {
         </div>
 
         {/* Right Column: Direct Channels & Telemetry Info */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-          <div className="glass-panel" style={{ padding: '32px', borderRadius: '20px' }}>
-            <h3 style={{ fontSize: '1.3rem', fontWeight: 700, marginBottom: '16px', color: 'var(--neon-cyan)' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <div className="glass-panel" style={{ padding: 'clamp(20px, 4vw, 32px)', borderRadius: '16px' }}>
+            <h3 style={{ fontSize: 'clamp(1.1rem, 3.5vw, 1.3rem)', fontWeight: 700, marginBottom: '14px', color: 'var(--neon-cyan)' }}>
               // DIRECT TELEMETRY CHANNELS
             </h3>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginBottom: '24px' }}>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '20px' }}>
               Prefer direct developer communication? Reach out via direct channels or social networks.
             </p>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               <a
                 href="mailto:dev@portfolio.geek"
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '14px',
-                  padding: '12px 16px',
-                  borderRadius: '12px',
+                  gap: '12px',
+                  padding: '10px 14px',
+                  borderRadius: '10px',
                   background: 'rgba(255, 255, 255, 0.03)',
                   border: '1px solid rgba(255, 255, 255, 0.08)',
                   color: '#fff',
                   textDecoration: 'none',
                   fontFamily: 'var(--font-mono)',
-                  fontSize: '0.9rem'
+                  fontSize: 'clamp(0.82rem, 2.5vw, 0.9rem)',
+                  overflowWrap: 'anywhere'
                 }}
               >
-                <Mail size={20} color="var(--neon-cyan)" />
+                <Mail size={18} color="var(--neon-cyan)" style={{ flexShrink: 0 }} />
                 <span>dev@portfolio.geek</span>
               </a>
 
@@ -225,18 +226,19 @@ export default function ContactSection() {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '14px',
-                  padding: '12px 16px',
-                  borderRadius: '12px',
+                  gap: '12px',
+                  padding: '10px 14px',
+                  borderRadius: '10px',
                   background: 'rgba(255, 255, 255, 0.03)',
                   border: '1px solid rgba(255, 255, 255, 0.08)',
                   color: '#fff',
                   textDecoration: 'none',
                   fontFamily: 'var(--font-mono)',
-                  fontSize: '0.9rem'
+                  fontSize: 'clamp(0.82rem, 2.5vw, 0.9rem)',
+                  overflowWrap: 'anywhere'
                 }}
               >
-                <Github size={20} color="var(--matrix-green)" />
+                <Github size={18} color="var(--matrix-green)" style={{ flexShrink: 0 }} />
                 <span>github.com/geekdev</span>
               </a>
 
@@ -247,18 +249,19 @@ export default function ContactSection() {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '14px',
-                  padding: '12px 16px',
-                  borderRadius: '12px',
+                  gap: '12px',
+                  padding: '10px 14px',
+                  borderRadius: '10px',
                   background: 'rgba(255, 255, 255, 0.03)',
                   border: '1px solid rgba(255, 255, 255, 0.08)',
                   color: '#fff',
                   textDecoration: 'none',
                   fontFamily: 'var(--font-mono)',
-                  fontSize: '0.9rem'
+                  fontSize: 'clamp(0.82rem, 2.5vw, 0.9rem)',
+                  overflowWrap: 'anywhere'
                 }}
               >
-                <Linkedin size={20} color="var(--cyber-purple)" />
+                <Linkedin size={18} color="var(--cyber-purple)" style={{ flexShrink: 0 }} />
                 <span>linkedin.com/in/geek-architect</span>
               </a>
             </div>
@@ -267,16 +270,16 @@ export default function ContactSection() {
           <div
             className="glass-panel"
             style={{
-              padding: '24px',
-              borderRadius: '20px',
+              padding: 'clamp(18px, 4vw, 24px)',
+              borderRadius: '16px',
               borderLeft: '4px solid var(--neon-cyan)',
               background: 'linear-gradient(135deg, rgba(0, 243, 255, 0.05) 0%, rgba(13, 17, 24, 0.8) 100%)'
             }}
           >
-            <div style={{ fontSize: '0.85rem', fontFamily: 'var(--font-mono)', color: 'var(--neon-cyan)', marginBottom: '6px' }}>
+            <div style={{ fontSize: '0.8rem', fontFamily: 'var(--font-mono)', color: 'var(--neon-cyan)', marginBottom: '4px' }}>
               LOCATION & TIMEZONE:
             </div>
-            <div style={{ fontSize: '1rem', fontWeight: 600, color: '#fff' }}>
+            <div style={{ fontSize: '0.92rem', fontWeight: 600, color: '#fff' }}>
               Earth // UTC+05:30 (IST) // Available Worldwide Remote
             </div>
           </div>

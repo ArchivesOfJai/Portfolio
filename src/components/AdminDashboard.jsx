@@ -413,44 +413,44 @@ export default function AdminDashboard({ onBackToPortfolio, onDataChanged }) {
 
   // ==================== AUTHENTICATED ADMIN DASHBOARD STUDIO ====================
   return (
-    <div style={{ minHeight: '100vh', padding: '40px 24px', maxWidth: '1280px', margin: '0 auto', position: 'relative', zIndex: 10 }}>
+    <div style={{ minHeight: '100vh', padding: 'clamp(20px, 4vw, 40px) clamp(12px, 3vw, 24px)', maxWidth: '1280px', margin: '0 auto', position: 'relative', zIndex: 10 }}>
       {/* Header Bar */}
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '36px', flexWrap: 'wrap', gap: '16px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '28px', flexWrap: 'wrap', gap: '14px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap' }}>
           <button
             onClick={() => { sfx.playClick(); onBackToPortfolio(); }}
             className="btn-cyber-outline"
-            style={{ padding: '8px 16px', fontSize: '0.85rem' }}
+            style={{ padding: '8px 14px', fontSize: '0.82rem' }}
           >
             <ArrowLeft size={16} />
             <span>Return to Portfolio</span>
           </button>
 
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <Database size={24} color="var(--matrix-green)" />
-              <h1 style={{ fontSize: '1.8rem', fontWeight: 800 }}>MongoDB Atlas Cyber Studio</h1>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <Database size={22} color="var(--matrix-green)" />
+              <h1 style={{ fontSize: 'clamp(1.25rem, 4vw, 1.75rem)', fontWeight: 800 }}>MongoDB Atlas Cyber Studio</h1>
             </div>
-            <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
+            <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
               AUTHENTICATED SESSION // FULL CRUD OPERATIONS
             </span>
           </div>
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
           <div className="glass-pill" style={{ borderColor: 'var(--matrix-green)', color: 'var(--matrix-green)' }}>
             <ShieldCheck size={14} />
             <span>● ATLAS CONNECTED</span>
           </div>
 
-          <button onClick={loadAllData} className="glass-panel" style={{ padding: '8px 14px', cursor: 'pointer', display: 'flex', gap: '6px', alignItems: 'center' }}>
+          <button onClick={loadAllData} className="glass-panel" style={{ padding: '7px 12px', cursor: 'pointer', display: 'flex', gap: '6px', alignItems: 'center' }}>
             <RefreshCw size={14} className={loading ? 'animate-spin' : ''} />
-            <span style={{ fontSize: '0.8rem', fontFamily: 'var(--font-mono)' }}>Sync DB</span>
+            <span style={{ fontSize: '0.78rem', fontFamily: 'var(--font-mono)' }}>Sync DB</span>
           </button>
 
           <button
             onClick={handleLogout}
-            style={{ background: 'rgba(255, 0, 127, 0.1)', border: '1px solid var(--cyber-magenta)', color: 'var(--cyber-magenta)', padding: '8px 14px', borderRadius: '8px', cursor: 'pointer', display: 'flex', gap: '6px', alignItems: 'center', fontFamily: 'var(--font-mono)', fontSize: '0.8rem' }}
+            style={{ background: 'rgba(255, 0, 127, 0.1)', border: '1px solid var(--cyber-magenta)', color: 'var(--cyber-magenta)', padding: '7px 12px', borderRadius: '8px', cursor: 'pointer', display: 'flex', gap: '6px', alignItems: 'center', fontFamily: 'var(--font-mono)', fontSize: '0.78rem' }}
           >
             <LogOut size={14} />
             <span>Sign Out</span>
@@ -461,21 +461,21 @@ export default function AdminDashboard({ onBackToPortfolio, onDataChanged }) {
       {statusMsg && (
         <div
           style={{
-            padding: '12px 20px', borderRadius: '10px', background: 'rgba(0, 255, 102, 0.15)', border: '1px solid var(--matrix-green)', color: 'var(--matrix-green)', marginBottom: '24px', fontFamily: 'var(--font-mono)', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '10px'
+            padding: '10px 16px', borderRadius: '10px', background: 'rgba(0, 255, 102, 0.15)', border: '1px solid var(--matrix-green)', color: 'var(--matrix-green)', marginBottom: '20px', fontFamily: 'var(--font-mono)', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '8px'
           }}
         >
-          <CheckCircle size={18} />
+          <CheckCircle size={16} />
           <span>{statusMsg.text}</span>
         </div>
       )}
 
       {/* Navigation Tabs */}
-      <div style={{ display: 'flex', gap: '12px', marginBottom: '32px', flexWrap: 'wrap' }}>
+      <div style={{ display: 'flex', gap: '10px', marginBottom: '28px', flexWrap: 'wrap' }}>
         <button
           onClick={() => { sfx.playClick(); setActiveTab('messages'); }}
           className="glass-panel"
           style={{
-            padding: '10px 20px', borderRadius: '10px', border: `1px solid ${activeTab === 'messages' ? 'var(--matrix-green)' : 'transparent'}`, color: activeTab === 'messages' ? 'var(--matrix-green)' : 'var(--text-muted)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', fontFamily: 'var(--font-mono)'
+            padding: '8px 16px', borderRadius: '10px', border: `1px solid ${activeTab === 'messages' ? 'var(--matrix-green)' : 'transparent'}`, color: activeTab === 'messages' ? 'var(--matrix-green)' : 'var(--text-muted)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', fontFamily: 'var(--font-mono)', fontSize: '0.85rem'
           }}
         >
           <Mail size={16} />
@@ -486,54 +486,54 @@ export default function AdminDashboard({ onBackToPortfolio, onDataChanged }) {
           onClick={() => { sfx.playClick(); setActiveTab('projects'); }}
           className="glass-panel"
           style={{
-            padding: '10px 20px', borderRadius: '10px', border: `1px solid ${activeTab === 'projects' ? 'var(--neon-cyan)' : 'transparent'}`, color: activeTab === 'projects' ? 'var(--neon-cyan)' : 'var(--text-muted)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', fontFamily: 'var(--font-mono)'
+            padding: '8px 16px', borderRadius: '10px', border: `1px solid ${activeTab === 'projects' ? 'var(--neon-cyan)' : 'transparent'}`, color: activeTab === 'projects' ? 'var(--neon-cyan)' : 'var(--text-muted)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', fontFamily: 'var(--font-mono)', fontSize: '0.85rem'
           }}
         >
           <FolderGit2 size={16} />
-          <span>Projects Vault CRUD ({projects.length})</span>
+          <span>Projects CRUD ({projects.length})</span>
         </button>
 
         <button
           onClick={() => { sfx.playClick(); setActiveTab('skills'); }}
           className="glass-panel"
           style={{
-            padding: '10px 20px', borderRadius: '10px', border: `1px solid ${activeTab === 'skills' ? 'var(--cyber-purple)' : 'transparent'}`, color: activeTab === 'skills' ? 'var(--cyber-purple)' : 'var(--text-muted)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', fontFamily: 'var(--font-mono)'
+            padding: '8px 16px', borderRadius: '10px', border: `1px solid ${activeTab === 'skills' ? 'var(--cyber-purple)' : 'transparent'}`, color: activeTab === 'skills' ? 'var(--cyber-purple)' : 'var(--text-muted)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', fontFamily: 'var(--font-mono)', fontSize: '0.85rem'
           }}
         >
           <Cpu size={16} />
-          <span>Skills Matrix CRUD ({skills.length})</span>
+          <span>Skills CRUD ({skills.length})</span>
         </button>
 
         <button
           onClick={() => { sfx.playClick(); setActiveTab('timeline'); }}
           className="glass-panel"
           style={{
-            padding: '10px 20px', borderRadius: '10px', border: `1px solid ${activeTab === 'timeline' ? 'var(--neon-amber)' : 'transparent'}`, color: activeTab === 'timeline' ? 'var(--neon-amber)' : 'var(--text-muted)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', fontFamily: 'var(--font-mono)'
+            padding: '8px 16px', borderRadius: '10px', border: `1px solid ${activeTab === 'timeline' ? 'var(--neon-amber)' : 'transparent'}`, color: activeTab === 'timeline' ? 'var(--neon-amber)' : 'var(--text-muted)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', fontFamily: 'var(--font-mono)', fontSize: '0.85rem'
           }}
         >
           <GitCommit size={16} />
-          <span>Changelog & Timeline CRUD ({experiences.length})</span>
+          <span>Changelog CRUD ({experiences.length})</span>
         </button>
       </div>
 
       {/* TAB 1: MESSAGES CRUD */}
       {activeTab === 'messages' && (
-        <div className="glass-panel" style={{ padding: '28px' }}>
-          <h2 style={{ fontSize: '1.25rem', marginBottom: '20px', color: 'var(--matrix-green)' }}>
+        <div className="glass-panel" style={{ padding: 'clamp(18px, 4vw, 28px)' }}>
+          <h2 style={{ fontSize: '1.2rem', marginBottom: '16px', color: 'var(--matrix-green)' }}>
             // CONTACT SUBMISSIONS (COLLECTION: messages)
           </h2>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
             {messages.length === 0 ? (
-              <p style={{ color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>No submissions found in MongoDB Atlas collection.</p>
+              <p style={{ color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', fontSize: '0.88rem' }}>No submissions found in MongoDB Atlas collection.</p>
             ) : (
               messages.map((m, idx) => (
-                <div key={m._id || m.id || idx} className="glass-panel" style={{ padding: '20px', background: 'rgba(5, 7, 10, 0.7)' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                <div key={m._id || m.id || idx} className="glass-panel" style={{ padding: '16px', background: 'rgba(5, 7, 10, 0.7)' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px', flexWrap: 'wrap', gap: '8px' }}>
                     <div>
                       <strong style={{ color: 'var(--neon-cyan)' }}>{m.name}</strong> &lt;{m.email}&gt;
                     </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                      <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                      <span style={{ fontSize: '0.76rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
                         {m.createdAt ? new Date(m.createdAt).toLocaleString() : 'Recent'}
                       </span>
                       <button onClick={() => handleDeleteMessage(m._id || m.id)} style={{ background: 'transparent', border: 'none', color: 'var(--cyber-magenta)', cursor: 'pointer' }} title="Delete Message">
@@ -541,8 +541,8 @@ export default function AdminDashboard({ onBackToPortfolio, onDataChanged }) {
                       </button>
                     </div>
                   </div>
-                  <div style={{ fontSize: '0.9rem', color: 'var(--matrix-green)', marginBottom: '4px' }}>Subject: {m.subject}</div>
-                  <p style={{ color: 'var(--text-main)', fontSize: '0.92rem', background: 'rgba(0,0,0,0.4)', padding: '10px', borderRadius: '6px' }}>{m.message}</p>
+                  <div style={{ fontSize: '0.88rem', color: 'var(--matrix-green)', marginBottom: '4px' }}>Subject: {m.subject}</div>
+                  <p style={{ color: 'var(--text-main)', fontSize: '0.88rem', background: 'rgba(0,0,0,0.4)', padding: '10px', borderRadius: '6px', wordBreak: 'break-word' }}>{m.message}</p>
                 </div>
               ))
             )}
@@ -552,74 +552,75 @@ export default function AdminDashboard({ onBackToPortfolio, onDataChanged }) {
 
       {/* TAB 2: PROJECTS VAULT CRUD */}
       {activeTab === 'projects' && (
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '28px' }} className="admin-grid">
-          <div className="glass-panel" style={{ padding: '28px' }}>
-            <h2 style={{ fontSize: '1.25rem', marginBottom: '20px', color: 'var(--neon-cyan)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }} className="admin-grid">
+          <div className="glass-panel" style={{ padding: 'clamp(18px, 4vw, 28px)' }}>
+            <h2 style={{ fontSize: '1.2rem', marginBottom: '16px', color: 'var(--neon-cyan)' }}>
               {editingProjectId ? '// EDIT PROJECT' : '// ADD NEW PROJECT TO ATLAS'}
             </h2>
-            <form onSubmit={handleSaveProject} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+            <form onSubmit={handleSaveProject} style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               <div>
-                <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>TITLE *</label>
+                <label style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>TITLE *</label>
                 <input
-                  type="text" value={projectForm.title} onChange={(e) => setProjectForm({ ...projectForm, title: e.target.value })} placeholder="e.g. Quantum IDE Studio" required style={{ width: '100%', padding: '10px', background: '#05070a', border: '1px solid rgba(0,243,255,0.3)', color: '#fff', borderRadius: '8px' }}
+                  type="text" value={projectForm.title} onChange={(e) => setProjectForm({ ...projectForm, title: e.target.value })} placeholder="e.g. Quantum IDE Studio" required style={{ width: '100%', padding: '8px 12px', background: '#05070a', border: '1px solid rgba(0,243,255,0.3)', color: '#fff', borderRadius: '8px' }}
                 />
               </div>
 
               <div>
-                <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>TAGLINE *</label>
+                <label style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>TAGLINE *</label>
                 <input
-                  type="text" value={projectForm.tagline} onChange={(e) => setProjectForm({ ...projectForm, tagline: e.target.value })} placeholder="Brief 1-line summary" required style={{ width: '100%', padding: '10px', background: '#05070a', border: '1px solid rgba(0,243,255,0.3)', color: '#fff', borderRadius: '8px' }}
+                  type="text" value={projectForm.tagline} onChange={(e) => setProjectForm({ ...projectForm, tagline: e.target.value })} placeholder="Brief 1-line summary" required style={{ width: '100%', padding: '8px 12px', background: '#05070a', border: '1px solid rgba(0,243,255,0.3)', color: '#fff', borderRadius: '8px' }}
                 />
               </div>
 
               <div>
-                <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>DESCRIPTION *</label>
+                <label style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>DESCRIPTION *</label>
                 <textarea
-                  value={projectForm.description} onChange={(e) => setProjectForm({ ...projectForm, description: e.target.value })} rows={3} required style={{ width: '100%', padding: '10px', background: '#05070a', border: '1px solid rgba(0,243,255,0.3)', color: '#fff', borderRadius: '8px' }}
+                  value={projectForm.description} onChange={(e) => setProjectForm({ ...projectForm, description: e.target.value })} rows={3} required style={{ width: '100%', padding: '8px 12px', background: '#05070a', border: '1px solid rgba(0,243,255,0.3)', color: '#fff', borderRadius: '8px' }}
                 />
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '10px' }}>
                 <div>
-                  <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>CATEGORY</label>
-                  <input type="text" value={projectForm.category} onChange={(e) => setProjectForm({ ...projectForm, category: e.target.value })} style={{ width: '100%', padding: '10px', background: '#05070a', border: '1px solid rgba(0,243,255,0.3)', color: '#fff', borderRadius: '8px' }} />
+                  <label style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>CATEGORY</label>
+                  <input type="text" value={projectForm.category} onChange={(e) => setProjectForm({ ...projectForm, category: e.target.value })} style={{ width: '100%', padding: '8px 12px', background: '#05070a', border: '1px solid rgba(0,243,255,0.3)', color: '#fff', borderRadius: '8px' }} />
                 </div>
                 <div>
-                  <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>STARS</label>
-                  <input type="number" value={projectForm.stars} onChange={(e) => setProjectForm({ ...projectForm, stars: e.target.value })} style={{ width: '100%', padding: '10px', background: '#05070a', border: '1px solid rgba(0,243,255,0.3)', color: '#fff', borderRadius: '8px' }} />
+                  <label style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>STARS</label>
+                  <input type="number" value={projectForm.stars} onChange={(e) => setProjectForm({ ...projectForm, stars: e.target.value })} style={{ width: '100%', padding: '8px 12px', background: '#05070a', border: '1px solid rgba(0,243,255,0.3)', color: '#fff', borderRadius: '8px' }} />
                 </div>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '10px' }}>
                 <div>
-                  <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>GITHUB REPO URL</label>
-                  <input type="text" value={projectForm.githubUrl} onChange={(e) => setProjectForm({ ...projectForm, githubUrl: e.target.value })} placeholder="https://github.com/username/repo" style={{ width: '100%', padding: '10px', background: '#05070a', border: '1px solid rgba(0,243,255,0.3)', color: '#fff', borderRadius: '8px' }} />
+                  <label style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>GITHUB REPO URL</label>
+                  <input type="text" value={projectForm.githubUrl} onChange={(e) => setProjectForm({ ...projectForm, githubUrl: e.target.value })} placeholder="https://github.com/username/repo" style={{ width: '100%', padding: '8px 12px', background: '#05070a', border: '1px solid rgba(0,243,255,0.3)', color: '#fff', borderRadius: '8px' }} />
                 </div>
                 <div>
-                  <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>LIVE DEMO URL</label>
-                  <input type="text" value={projectForm.liveUrl} onChange={(e) => setProjectForm({ ...projectForm, liveUrl: e.target.value })} placeholder="https://demo.dev" style={{ width: '100%', padding: '10px', background: '#05070a', border: '1px solid rgba(0,243,255,0.3)', color: '#fff', borderRadius: '8px' }} />
+                  <label style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>LIVE DEMO URL</label>
+                  <input type="text" value={projectForm.liveUrl} onChange={(e) => setProjectForm({ ...projectForm, liveUrl: e.target.value })} placeholder="https://demo.dev" style={{ width: '100%', padding: '8px 12px', background: '#05070a', border: '1px solid rgba(0,243,255,0.3)', color: '#fff', borderRadius: '8px' }} />
                 </div>
               </div>
 
               <div>
-                <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '6px' }}>
+                <label style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '6px' }}>
                   PROJECT COVER IMAGE * (UPLOAD FILE OR ENTER URL)
                 </label>
 
                 <div style={{
                   display: 'flex',
-                  gap: '14px',
+                  gap: '12px',
                   alignItems: 'center',
                   background: 'rgba(5, 7, 10, 0.8)',
                   border: '1px dashed rgba(0, 243, 255, 0.4)',
                   borderRadius: '10px',
-                  padding: '12px 14px'
+                  padding: '10px 12px',
+                  flexWrap: 'wrap'
                 }}>
                   {/* Live Thumbnail */}
                   <div style={{
-                    width: '84px',
-                    height: '56px',
-                    borderRadius: '8px',
+                    width: '70px',
+                    height: '46px',
+                    borderRadius: '6px',
                     overflow: 'hidden',
                     background: '#000',
                     border: '1px solid rgba(0, 243, 255, 0.3)',
@@ -636,20 +637,20 @@ export default function AdminDashboard({ onBackToPortfolio, onDataChanged }) {
                         onError={(e) => { e.currentTarget.src = '/images/project_cyber_ai.png'; }}
                       />
                     ) : (
-                      <Image size={24} color="var(--text-muted)" />
+                      <Image size={20} color="var(--text-muted)" />
                     )}
                   </div>
 
                   {/* Controls */}
-                  <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <div style={{ flex: 1, minWidth: '180px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
                       <label
                         htmlFor="coverImageUploadInput"
                         className="glass-panel"
                         style={{
-                          padding: '6px 14px',
+                          padding: '5px 12px',
                           borderRadius: '6px',
-                          fontSize: '0.8rem',
+                          fontSize: '0.76rem',
                           fontFamily: 'var(--font-mono)',
                           color: 'var(--neon-cyan)',
                           borderColor: 'var(--neon-cyan)',
@@ -660,7 +661,7 @@ export default function AdminDashboard({ onBackToPortfolio, onDataChanged }) {
                         }}
                       >
                         {uploadingCover ? <Loader2 size={14} className="animate-spin" /> : <Upload size={14} />}
-                        <span>{uploadingCover ? 'Uploading Image...' : 'Choose Image File'}</span>
+                        <span>{uploadingCover ? 'Uploading...' : 'Choose File'}</span>
                       </label>
                       <input
                         id="coverImageUploadInput"
@@ -669,7 +670,7 @@ export default function AdminDashboard({ onBackToPortfolio, onDataChanged }) {
                         onChange={handleCoverImageFileChange}
                         style={{ display: 'none' }}
                       />
-                      <span style={{ fontSize: '0.74rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
+                      <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
                         PNG, JPG, WebP, SVG
                       </span>
                     </div>
@@ -678,15 +679,15 @@ export default function AdminDashboard({ onBackToPortfolio, onDataChanged }) {
                       type="text"
                       value={projectForm.coverImage}
                       onChange={(e) => setProjectForm({ ...projectForm, coverImage: e.target.value })}
-                      placeholder="Image URL or uploaded path e.g. /uploads/image.png"
+                      placeholder="Image URL or uploaded path..."
                       style={{
                         width: '100%',
-                        padding: '6px 10px',
+                        padding: '5px 8px',
                         background: '#05070a',
                         border: '1px solid rgba(0,243,255,0.2)',
                         color: '#fff',
                         borderRadius: '6px',
-                        fontSize: '0.8rem',
+                        fontSize: '0.76rem',
                         fontFamily: 'var(--font-mono)'
                       }}
                     />
@@ -695,38 +696,38 @@ export default function AdminDashboard({ onBackToPortfolio, onDataChanged }) {
               </div>
 
               <div>
-                <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>TECH STACK (comma separated)</label>
-                <input type="text" value={projectForm.techStack} onChange={(e) => setProjectForm({ ...projectForm, techStack: e.target.value })} placeholder="React, Node.js, Express, MongoDB" style={{ width: '100%', padding: '10px', background: '#05070a', border: '1px solid rgba(0,243,255,0.3)', color: '#fff', borderRadius: '8px' }} />
+                <label style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>TECH STACK (comma separated)</label>
+                <input type="text" value={projectForm.techStack} onChange={(e) => setProjectForm({ ...projectForm, techStack: e.target.value })} placeholder="React, Node.js, Express, MongoDB" style={{ width: '100%', padding: '8px 12px', background: '#05070a', border: '1px solid rgba(0,243,255,0.3)', color: '#fff', borderRadius: '8px' }} />
               </div>
 
-              <button type="submit" className="btn-cyber">
+              <button type="submit" className="btn-cyber" style={{ marginTop: '4px' }}>
                 <Plus size={16} />
                 <span>{editingProjectId ? 'Update Project' : 'Save Project to Atlas'}</span>
               </button>
             </form>
           </div>
 
-          <div className="glass-panel" style={{ padding: '28px', maxHeight: '750px', overflowY: 'auto' }}>
-            <h2 style={{ fontSize: '1.25rem', marginBottom: '20px', color: 'var(--neon-cyan)' }}>
+          <div className="glass-panel" style={{ padding: 'clamp(18px, 4vw, 28px)', maxHeight: '750px', overflowY: 'auto' }}>
+            <h2 style={{ fontSize: '1.2rem', marginBottom: '16px', color: 'var(--neon-cyan)' }}>
               // STORED PROJECTS ({projects.length})
             </h2>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {projects.map((p) => (
-                <div key={p._id || p.id} className="glass-panel" style={{ padding: '16px', background: 'rgba(5, 7, 10, 0.7)' }}>
-                  <div style={{ display: 'flex', gap: '14px', alignItems: 'center' }}>
+                <div key={p._id || p.id} className="glass-panel" style={{ padding: '14px', background: 'rgba(5, 7, 10, 0.7)' }}>
+                  <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
                     <img
                       src={p.coverImage || '/images/project_cyber_ai.png'}
                       alt={p.title}
-                      style={{ width: '64px', height: '44px', borderRadius: '6px', objectFit: 'cover', border: '1px solid rgba(0,243,255,0.3)' }}
+                      style={{ width: '56px', height: '40px', borderRadius: '6px', objectFit: 'cover', border: '1px solid rgba(0,243,255,0.3)' }}
                       onError={(e) => { e.currentTarget.src = '/images/project_cyber_ai.png'; }}
                     />
                     <div style={{ flex: 1, minWidth: 0 }}>
-                      <h3 style={{ fontSize: '1.05rem', color: 'var(--neon-cyan)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{p.title}</h3>
-                      <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{p.tagline}</p>
+                      <h3 style={{ fontSize: '0.98rem', color: 'var(--neon-cyan)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{p.title}</h3>
+                      <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{p.tagline}</p>
                     </div>
-                    <div style={{ display: 'flex', gap: '10px', flexShrink: 0 }}>
-                      <button onClick={() => handleEditProject(p)} style={{ background: 'transparent', border: 'none', color: 'var(--neon-amber)', cursor: 'pointer' }}><Edit3 size={16} /></button>
-                      <button onClick={() => handleDeleteProject(p._id || p.id)} style={{ background: 'transparent', border: 'none', color: 'var(--cyber-magenta)', cursor: 'pointer' }}><Trash2 size={16} /></button>
+                    <div style={{ display: 'flex', gap: '8px', flexShrink: 0 }}>
+                      <button onClick={() => handleEditProject(p)} style={{ background: 'transparent', border: 'none', color: 'var(--neon-amber)', cursor: 'pointer', padding: '2px' }}><Edit3 size={16} /></button>
+                      <button onClick={() => handleDeleteProject(p._id || p.id)} style={{ background: 'transparent', border: 'none', color: 'var(--cyber-magenta)', cursor: 'pointer', padding: '2px' }}><Trash2 size={16} /></button>
                     </div>
                   </div>
                 </div>
@@ -738,54 +739,54 @@ export default function AdminDashboard({ onBackToPortfolio, onDataChanged }) {
 
       {/* TAB 3: SKILLS MATRIX CRUD */}
       {activeTab === 'skills' && (
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '28px' }} className="admin-grid">
-          <div className="glass-panel" style={{ padding: '28px' }}>
-            <h2 style={{ fontSize: '1.25rem', marginBottom: '20px', color: 'var(--cyber-purple)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }} className="admin-grid">
+          <div className="glass-panel" style={{ padding: 'clamp(18px, 4vw, 28px)' }}>
+            <h2 style={{ fontSize: '1.2rem', marginBottom: '16px', color: 'var(--cyber-purple)' }}>
               {editingSkillId ? '// EDIT SKILL' : '// ADD NEW SKILL TO ATLAS'}
             </h2>
-            <form onSubmit={handleSaveSkill} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+            <form onSubmit={handleSaveSkill} style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               <div>
-                <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>SKILL NAME *</label>
-                <input type="text" value={skillForm.name} onChange={(e) => setSkillForm({ ...skillForm, name: e.target.value })} placeholder="e.g. MongoDB Atlas & Mongoose" required style={{ width: '100%', padding: '10px', background: '#05070a', border: '1px solid rgba(157,78,221,0.3)', color: '#fff', borderRadius: '8px' }} />
+                <label style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>SKILL NAME *</label>
+                <input type="text" value={skillForm.name} onChange={(e) => setSkillForm({ ...skillForm, name: e.target.value })} placeholder="e.g. MongoDB Atlas & Mongoose" required style={{ width: '100%', padding: '8px 12px', background: '#05070a', border: '1px solid rgba(157,78,221,0.3)', color: '#fff', borderRadius: '8px' }} />
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '10px' }}>
                 <div>
-                  <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>CATEGORY</label>
-                  <input type="text" value={skillForm.category} onChange={(e) => setSkillForm({ ...skillForm, category: e.target.value })} style={{ width: '100%', padding: '10px', background: '#05070a', border: '1px solid rgba(157,78,221,0.3)', color: '#fff', borderRadius: '8px' }} />
+                  <label style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>CATEGORY</label>
+                  <input type="text" value={skillForm.category} onChange={(e) => setSkillForm({ ...skillForm, category: e.target.value })} style={{ width: '100%', padding: '8px 12px', background: '#05070a', border: '1px solid rgba(157,78,221,0.3)', color: '#fff', borderRadius: '8px' }} />
                 </div>
                 <div>
-                  <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>PROFICIENCY % (1-100)</label>
-                  <input type="number" value={skillForm.level} onChange={(e) => setSkillForm({ ...skillForm, level: e.target.value })} style={{ width: '100%', padding: '10px', background: '#05070a', border: '1px solid rgba(157,78,221,0.3)', color: '#fff', borderRadius: '8px' }} />
+                  <label style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>PROFICIENCY % (1-100)</label>
+                  <input type="number" value={skillForm.level} onChange={(e) => setSkillForm({ ...skillForm, level: e.target.value })} style={{ width: '100%', padding: '8px 12px', background: '#05070a', border: '1px solid rgba(157,78,221,0.3)', color: '#fff', borderRadius: '8px' }} />
                 </div>
               </div>
 
               <div>
-                <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>DESCRIPTION</label>
-                <input type="text" value={skillForm.description} onChange={(e) => setSkillForm({ ...skillForm, description: e.target.value })} placeholder="Skill details" style={{ width: '100%', padding: '10px', background: '#05070a', border: '1px solid rgba(157,78,221,0.3)', color: '#fff', borderRadius: '8px' }} />
+                <label style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>DESCRIPTION</label>
+                <input type="text" value={skillForm.description} onChange={(e) => setSkillForm({ ...skillForm, description: e.target.value })} placeholder="Skill details" style={{ width: '100%', padding: '8px 12px', background: '#05070a', border: '1px solid rgba(157,78,221,0.3)', color: '#fff', borderRadius: '8px' }} />
               </div>
 
-              <button type="submit" className="btn-cyber" style={{ borderColor: 'var(--cyber-purple)' }}>
+              <button type="submit" className="btn-cyber" style={{ borderColor: 'var(--cyber-purple)', marginTop: '4px' }}>
                 <Plus size={16} />
                 <span>{editingSkillId ? 'Update Skill' : 'Save Skill to Atlas'}</span>
               </button>
             </form>
           </div>
 
-          <div className="glass-panel" style={{ padding: '28px', maxHeight: '600px', overflowY: 'auto' }}>
-            <h2 style={{ fontSize: '1.25rem', marginBottom: '20px', color: 'var(--cyber-purple)' }}>
+          <div className="glass-panel" style={{ padding: 'clamp(18px, 4vw, 28px)', maxHeight: '600px', overflowY: 'auto' }}>
+            <h2 style={{ fontSize: '1.2rem', marginBottom: '16px', color: 'var(--cyber-purple)' }}>
               // STORED SKILLS ({skills.length})
             </h2>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {skills.map((s) => (
-                <div key={s._id || s.id} className="glass-panel" style={{ padding: '16px', background: 'rgba(5, 7, 10, 0.7)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div key={s._id || s.id} className="glass-panel" style={{ padding: '14px', background: 'rgba(5, 7, 10, 0.7)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <div>
-                    <h3 style={{ fontSize: '1rem', color: 'var(--matrix-green)' }}>{s.name} ({s.level}%)</h3>
-                    <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>{s.category}</span>
+                    <h3 style={{ fontSize: '0.95rem', color: 'var(--matrix-green)' }}>{s.name} ({s.level}%)</h3>
+                    <span style={{ fontSize: '0.76rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>{s.category}</span>
                   </div>
-                  <div style={{ display: 'flex', gap: '10px' }}>
-                    <button onClick={() => handleEditSkill(s)} style={{ background: 'transparent', border: 'none', color: 'var(--neon-amber)', cursor: 'pointer' }}><Edit3 size={16} /></button>
-                    <button onClick={() => handleDeleteSkill(s._id || s.id)} style={{ background: 'transparent', border: 'none', color: 'var(--cyber-magenta)', cursor: 'pointer' }}><Trash2 size={16} /></button>
+                  <div style={{ display: 'flex', gap: '8px' }}>
+                    <button onClick={() => handleEditSkill(s)} style={{ background: 'transparent', border: 'none', color: 'var(--neon-amber)', cursor: 'pointer', padding: '2px' }}><Edit3 size={16} /></button>
+                    <button onClick={() => handleDeleteSkill(s._id || s.id)} style={{ background: 'transparent', border: 'none', color: 'var(--cyber-magenta)', cursor: 'pointer', padding: '2px' }}><Trash2 size={16} /></button>
                   </div>
                 </div>
               ))}
@@ -796,50 +797,50 @@ export default function AdminDashboard({ onBackToPortfolio, onDataChanged }) {
 
       {/* TAB 4: CHANGELOG & TIMELINE CRUD */}
       {activeTab === 'timeline' && (
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '28px' }} className="admin-grid">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }} className="admin-grid">
           {/* Add / Edit Timeline Form */}
-          <div className="glass-panel" style={{ padding: '28px' }}>
-            <h2 style={{ fontSize: '1.25rem', marginBottom: '20px', color: 'var(--neon-amber)' }}>
+          <div className="glass-panel" style={{ padding: 'clamp(18px, 4vw, 28px)' }}>
+            <h2 style={{ fontSize: '1.2rem', marginBottom: '16px', color: 'var(--neon-amber)' }}>
               {editingTimelineId ? '// EDIT TIMELINE MILESTONE' : '// ADD TIMELINE MILESTONE TO ATLAS'}
             </h2>
-            <form onSubmit={handleSaveTimeline} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+            <form onSubmit={handleSaveTimeline} style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '10px' }}>
                 <div>
-                  <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>PERIOD *</label>
+                  <label style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>PERIOD *</label>
                   <input
-                    type="text" value={timelineForm.period} onChange={(e) => setTimelineForm({ ...timelineForm, period: e.target.value })} placeholder="e.g. 2024 - PRESENT" required style={{ width: '100%', padding: '10px', background: '#05070a', border: '1px solid rgba(255,170,0,0.3)', color: '#fff', borderRadius: '8px' }}
+                    type="text" value={timelineForm.period} onChange={(e) => setTimelineForm({ ...timelineForm, period: e.target.value })} placeholder="e.g. 2024 - PRESENT" required style={{ width: '100%', padding: '8px 12px', background: '#05070a', border: '1px solid rgba(255,170,0,0.3)', color: '#fff', borderRadius: '8px' }}
                   />
                 </div>
                 <div>
-                  <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>COMPANY / ORG *</label>
+                  <label style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>COMPANY / ORG *</label>
                   <input
-                    type="text" value={timelineForm.company} onChange={(e) => setTimelineForm({ ...timelineForm, company: e.target.value })} placeholder="e.g. CyberNetix Labs" required style={{ width: '100%', padding: '10px', background: '#05070a', border: '1px solid rgba(255,170,0,0.3)', color: '#fff', borderRadius: '8px' }}
+                    type="text" value={timelineForm.company} onChange={(e) => setTimelineForm({ ...timelineForm, company: e.target.value })} placeholder="e.g. CyberNetix Labs" required style={{ width: '100%', padding: '8px 12px', background: '#05070a', border: '1px solid rgba(255,170,0,0.3)', color: '#fff', borderRadius: '8px' }}
                   />
                 </div>
               </div>
 
               <div>
-                <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>ROLE / TITLE *</label>
+                <label style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>ROLE / TITLE *</label>
                 <input
-                  type="text" value={timelineForm.role} onChange={(e) => setTimelineForm({ ...timelineForm, role: e.target.value })} placeholder="e.g. Lead Full-Stack Architect" required style={{ width: '100%', padding: '10px', background: '#05070a', border: '1px solid rgba(255,170,0,0.3)', color: '#fff', borderRadius: '8px' }}
+                  type="text" value={timelineForm.role} onChange={(e) => setTimelineForm({ ...timelineForm, role: e.target.value })} placeholder="e.g. Lead Full-Stack Architect" required style={{ width: '100%', padding: '8px 12px', background: '#05070a', border: '1px solid rgba(255,170,0,0.3)', color: '#fff', borderRadius: '8px' }}
                 />
               </div>
 
               <div>
-                <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>DESCRIPTION *</label>
+                <label style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>DESCRIPTION *</label>
                 <textarea
-                  value={timelineForm.description} onChange={(e) => setTimelineForm({ ...timelineForm, description: e.target.value })} rows={3} required style={{ width: '100%', padding: '10px', background: '#05070a', border: '1px solid rgba(255,170,0,0.3)', color: '#fff', borderRadius: '8px' }}
+                  value={timelineForm.description} onChange={(e) => setTimelineForm({ ...timelineForm, description: e.target.value })} rows={3} required style={{ width: '100%', padding: '8px 12px', background: '#05070a', border: '1px solid rgba(255,170,0,0.3)', color: '#fff', borderRadius: '8px' }}
                 />
               </div>
 
               <div>
-                <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>TECH TAGS (comma separated)</label>
+                <label style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>TECH TAGS (comma separated)</label>
                 <input
-                  type="text" value={timelineForm.techTags} onChange={(e) => setTimelineForm({ ...timelineForm, techTags: e.target.value })} placeholder="React, Node.js, Express, MongoDB" style={{ width: '100%', padding: '10px', background: '#05070a', border: '1px solid rgba(255,170,0,0.3)', color: '#fff', borderRadius: '8px' }}
+                  type="text" value={timelineForm.techTags} onChange={(e) => setTimelineForm({ ...timelineForm, techTags: e.target.value })} placeholder="React, Node.js, Express, MongoDB" style={{ width: '100%', padding: '8px 12px', background: '#05070a', border: '1px solid rgba(255,170,0,0.3)', color: '#fff', borderRadius: '8px' }}
                 />
               </div>
 
-              <button type="submit" className="btn-cyber" style={{ borderColor: 'var(--neon-amber)' }}>
+              <button type="submit" className="btn-cyber" style={{ borderColor: 'var(--neon-amber)', marginTop: '4px' }}>
                 <Plus size={16} />
                 <span>{editingTimelineId ? 'Update Timeline Milestone' : 'Save Milestone to Atlas'}</span>
               </button>
@@ -847,23 +848,23 @@ export default function AdminDashboard({ onBackToPortfolio, onDataChanged }) {
           </div>
 
           {/* Existing Timeline List */}
-          <div className="glass-panel" style={{ padding: '28px', maxHeight: '600px', overflowY: 'auto' }}>
-            <h2 style={{ fontSize: '1.25rem', marginBottom: '20px', color: 'var(--neon-amber)' }}>
+          <div className="glass-panel" style={{ padding: 'clamp(18px, 4vw, 28px)', maxHeight: '600px', overflowY: 'auto' }}>
+            <h2 style={{ fontSize: '1.2rem', marginBottom: '16px', color: 'var(--neon-amber)' }}>
               // STORED CHANGELOG & HISTORY ({experiences.length})
             </h2>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {experiences.map((exp) => (
-                <div key={exp._id || exp.id} className="glass-panel" style={{ padding: '16px', background: 'rgba(5, 7, 10, 0.7)' }}>
+                <div key={exp._id || exp.id} className="glass-panel" style={{ padding: '14px', background: 'rgba(5, 7, 10, 0.7)' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
-                    <span className="glass-pill" style={{ fontSize: '0.76rem' }}>{exp.period}</span>
-                    <div style={{ display: 'flex', gap: '10px' }}>
-                      <button onClick={() => handleEditTimeline(exp)} style={{ background: 'transparent', border: 'none', color: 'var(--neon-amber)', cursor: 'pointer' }}><Edit3 size={16} /></button>
-                      <button onClick={() => handleDeleteTimeline(exp._id || exp.id)} style={{ background: 'transparent', border: 'none', color: 'var(--cyber-magenta)', cursor: 'pointer' }}><Trash2 size={16} /></button>
+                    <span className="glass-pill" style={{ fontSize: '0.74rem' }}>{exp.period}</span>
+                    <div style={{ display: 'flex', gap: '8px' }}>
+                      <button onClick={() => handleEditTimeline(exp)} style={{ background: 'transparent', border: 'none', color: 'var(--neon-amber)', cursor: 'pointer', padding: '2px' }}><Edit3 size={16} /></button>
+                      <button onClick={() => handleDeleteTimeline(exp._id || exp.id)} style={{ background: 'transparent', border: 'none', color: 'var(--cyber-magenta)', cursor: 'pointer', padding: '2px' }}><Trash2 size={16} /></button>
                     </div>
                   </div>
-                  <h3 style={{ fontSize: '1.05rem', color: 'var(--neon-cyan)' }}>{exp.role}</h3>
-                  <span style={{ fontSize: '0.82rem', color: 'var(--matrix-green)', fontFamily: 'var(--font-mono)' }}>{exp.company}</span>
-                  <p style={{ fontSize: '0.86rem', color: 'var(--text-muted)', marginTop: '6px' }}>{exp.description}</p>
+                  <h3 style={{ fontSize: '0.98rem', color: 'var(--neon-cyan)' }}>{exp.role}</h3>
+                  <span style={{ fontSize: '0.8rem', color: 'var(--matrix-green)', fontFamily: 'var(--font-mono)' }}>{exp.company}</span>
+                  <p style={{ fontSize: '0.84rem', color: 'var(--text-muted)', marginTop: '4px' }}>{exp.description}</p>
                 </div>
               ))}
             </div>

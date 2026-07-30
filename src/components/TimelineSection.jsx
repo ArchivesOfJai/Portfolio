@@ -14,15 +14,15 @@ export default function TimelineSection({ experiences }) {
         Tracing career milestones, system refactors, and full-stack achievements.
       </p>
 
-      <div style={{ position: 'relative', maxWidth: '900px', margin: '0 auto', paddingLeft: '32px' }}>
+      <div style={{ position: 'relative', maxWidth: '900px', margin: '0 auto', paddingLeft: 'clamp(20px, 4vw, 32px)' }}>
         {/* Laser Illuminated Connector Line */}
         <div
           style={{
             position: 'absolute',
-            left: '12px',
+            left: 'clamp(6px, 1.5vw, 12px)',
             top: 0,
             bottom: 0,
-            width: '3px',
+            width: '2px',
             background: 'linear-gradient(to bottom, var(--neon-cyan) 0%, var(--matrix-green) 50%, var(--cyber-purple) 100%)',
             boxShadow: '0 0 15px rgba(0, 243, 255, 0.8)'
           }}
@@ -33,17 +33,17 @@ export default function TimelineSection({ experiences }) {
             key={exp.id || idx}
             style={{
               position: 'relative',
-              marginBottom: '40px'
+              marginBottom: '32px'
             }}
           >
             {/* Glowing Laser Node */}
             <div
               style={{
                 position: 'absolute',
-                left: '-32px',
-                top: '24px',
-                width: '19px',
-                height: '19px',
+                left: 'calc(-1 * clamp(20px, 4vw, 32px) + clamp(0px, 0.5vw, 4px))',
+                top: '20px',
+                width: '15px',
+                height: '15px',
                 borderRadius: '50%',
                 background: '#07090e',
                 border: '2px solid var(--neon-cyan)',
@@ -54,47 +54,47 @@ export default function TimelineSection({ experiences }) {
                 justifyContent: 'center'
               }}
             >
-              <div style={{ width: '7px', height: '7px', borderRadius: '50%', background: 'var(--matrix-green)' }} />
+              <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: 'var(--matrix-green)' }} />
             </div>
 
             {/* Glass Timeline Card */}
             <div
               className="glass-panel"
               style={{
-                padding: '28px',
-                borderRadius: '18px'
+                padding: 'clamp(16px, 4vw, 28px)',
+                borderRadius: '16px'
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px', marginBottom: '12px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px', marginBottom: '10px' }}>
                 <span className="glass-pill">
                   <Calendar size={12} />
                   <span>{exp.period}</span>
                 </span>
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', color: 'var(--matrix-green)' }}>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', color: 'var(--matrix-green)' }}>
                   {exp.company}
                 </span>
               </div>
 
-              <h3 style={{ fontSize: '1.3rem', fontWeight: 700, marginBottom: '10px' }}>
+              <h3 style={{ fontSize: 'clamp(1.1rem, 3.5vw, 1.3rem)', fontWeight: 700, marginBottom: '8px' }}>
                 {exp.role}
               </h3>
 
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.94rem', lineHeight: 1.6, marginBottom: '18px' }}>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.5, marginBottom: '16px' }}>
                 {exp.description}
               </p>
 
               {/* Tech Tags */}
-              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+              <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
                 {exp.techTags.map((tag) => (
                   <span
                     key={tag}
                     style={{
                       fontFamily: 'var(--font-mono)',
-                      fontSize: '0.76rem',
+                      fontSize: '0.72rem',
                       background: 'rgba(0, 243, 255, 0.08)',
                       border: '1px solid rgba(0, 243, 255, 0.2)',
                       color: 'var(--neon-cyan)',
-                      padding: '3px 10px',
+                      padding: '2px 8px',
                       borderRadius: '6px'
                     }}
                   >

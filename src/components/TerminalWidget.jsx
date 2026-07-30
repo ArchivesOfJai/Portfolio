@@ -85,13 +85,13 @@ export default function TerminalWidget({ isOpen, onClose }) {
         position: 'fixed',
         inset: 0,
         zIndex: 99999,
-        background: 'rgba(5, 7, 10, 0.85)',
+        background: 'rgba(5, 7, 10, 0.88)',
         backdropFilter: 'blur(16px)',
         WebkitBackdropFilter: 'blur(16px)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '20px'
+        padding: 'clamp(10px, 3vw, 20px)'
       }}
     >
       <div
@@ -99,7 +99,7 @@ export default function TerminalWidget({ isOpen, onClose }) {
         style={{
           width: '100%',
           maxWidth: '850px',
-          height: '560px',
+          height: 'clamp(420px, 85vh, 560px)',
           display: 'flex',
           flexDirection: 'column',
           borderRadius: '16px',
@@ -113,23 +113,24 @@ export default function TerminalWidget({ isOpen, onClose }) {
           style={{
             background: 'rgba(13, 17, 24, 0.95)',
             borderBottom: '1px solid rgba(0, 243, 255, 0.2)',
-            padding: '12px 18px',
+            padding: '10px 14px',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'space-between'
+            justifyContent: 'space-between',
+            gap: '8px'
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ff5f56' }} />
-            <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ffbd2e' }} />
-            <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#27c93f' }} />
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', color: 'var(--text-muted)', marginLeft: '12px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', minWidth: 0 }}>
+            <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ff5f56', flexShrink: 0 }} />
+            <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ffbd2e', flexShrink: 0 }} />
+            <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#27c93f', flexShrink: 0 }} />
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'clamp(0.72rem, 2.5vw, 0.84rem)', color: 'var(--text-muted)', marginLeft: '8px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
               MERN_CLI://geek_terminal.sh
             </span>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--matrix-green)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--matrix-green)' }} className="hide-on-mobile-xs">
               ● LIVE REST API
             </span>
             <button
@@ -141,7 +142,8 @@ export default function TerminalWidget({ isOpen, onClose }) {
                 background: 'transparent',
                 border: 'none',
                 color: 'var(--text-muted)',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                padding: '2px'
               }}
             >
               <X size={18} />
@@ -153,13 +155,14 @@ export default function TerminalWidget({ isOpen, onClose }) {
         <div
           style={{
             flex: 1,
-            padding: '20px',
+            padding: 'clamp(12px, 3vw, 20px)',
             overflowY: 'auto',
             fontFamily: 'var(--font-mono)',
-            fontSize: '0.9rem',
-            lineHeight: 1.6,
+            fontSize: 'clamp(0.78rem, 2.5vw, 0.88rem)',
+            lineHeight: 1.5,
             background: 'rgba(5, 7, 10, 0.92)',
-            color: 'var(--matrix-green)'
+            color: 'var(--matrix-green)',
+            WebkitOverflowScrolling: 'touch'
           }}
         >
           {history.map((line, idx) => (
@@ -172,7 +175,8 @@ export default function TerminalWidget({ isOpen, onClose }) {
                   : line.startsWith('==')
                   ? 'var(--cyber-purple)'
                   : 'var(--matrix-green)',
-                whiteSpace: 'pre-wrap'
+                whiteSpace: 'pre-wrap',
+                wordBreak: 'break-word'
               }}
             >
               {line}
@@ -195,18 +199,18 @@ export default function TerminalWidget({ isOpen, onClose }) {
             alignItems: 'center',
             background: 'rgba(13, 17, 24, 0.95)',
             borderTop: '1px solid rgba(0, 243, 255, 0.2)',
-            padding: '12px 18px',
-            gap: '10px'
+            padding: '10px 14px',
+            gap: '8px'
           }}
         >
-          <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--neon-cyan)', fontWeight: 'bold' }}>
+          <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--neon-cyan)', fontWeight: 'bold', fontSize: '0.82rem', flexShrink: 0 }}>
             visitor@geek:~$
           </span>
           <input
             type="text"
             value={inputVal}
             onChange={(e) => setInputVal(e.target.value)}
-            placeholder="Type 'help', 'skills', 'projects', 'stats', 'sudo hire'..."
+            placeholder="Type 'help', 'skills', 'projects'..."
             autoFocus
             style={{
               flex: 1,
@@ -215,7 +219,8 @@ export default function TerminalWidget({ isOpen, onClose }) {
               outline: 'none',
               color: '#fff',
               fontFamily: 'var(--font-mono)',
-              fontSize: '0.92rem'
+              fontSize: '0.85rem',
+              minWidth: 0
             }}
           />
           <button
@@ -224,17 +229,18 @@ export default function TerminalWidget({ isOpen, onClose }) {
               background: 'rgba(0, 243, 255, 0.15)',
               border: '1px solid var(--neon-cyan)',
               color: 'var(--neon-cyan)',
-              padding: '6px 14px',
+              padding: '6px 12px',
               borderRadius: '6px',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
-              gap: '6px',
+              gap: '4px',
               fontFamily: 'var(--font-mono)',
-              fontSize: '0.82rem'
+              fontSize: '0.78rem',
+              flexShrink: 0
             }}
           >
-            <Send size={14} />
+            <Send size={12} />
             <span>RUN</span>
           </button>
         </form>
