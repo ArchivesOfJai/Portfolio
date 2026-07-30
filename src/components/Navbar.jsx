@@ -160,97 +160,99 @@ export default function Navbar({ isMatrixMode, setIsMatrixMode, backendStatus, o
           </div>
 
           {/* Desktop Controls & Status */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }} className="desktop-controls">
-            {/* Admin Dashboard Switcher Button */}
-            <button
-              onClick={() => {
-                sfx.playClick();
-                onOpenAdmin();
-              }}
-              title="Open Admin DB Management Studio"
-              style={{
-                background: 'rgba(157, 78, 221, 0.15)',
-                border: '1px solid var(--cyber-purple)',
-                color: 'var(--cyber-purple)',
-                padding: '6px 12px',
-                borderRadius: '8px',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px',
-                fontFamily: 'var(--font-mono)',
-                fontSize: '0.78rem',
-                transition: 'all 0.3s ease'
-              }}
-            >
-              <Settings size={14} />
-              <span className="hide-on-mobile-xs">Admin Studio</span>
-            </button>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div className="desktop-only-controls" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              {/* Admin Dashboard Switcher Button */}
+              <button
+                onClick={() => {
+                  sfx.playClick();
+                  onOpenAdmin();
+                }}
+                title="Open Admin DB Management Studio"
+                style={{
+                  background: 'rgba(157, 78, 221, 0.15)',
+                  border: '1px solid var(--cyber-purple)',
+                  color: 'var(--cyber-purple)',
+                  padding: '6px 12px',
+                  borderRadius: '8px',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.78rem',
+                  transition: 'all 0.3s ease'
+                }}
+              >
+                <Settings size={14} />
+                <span>Admin Studio</span>
+              </button>
 
-            {/* MERN Backend API Status Badge */}
-            <div
-              className="glass-pill hide-on-mobile-xs"
-              title={`Backend Status: ${backendStatus}`}
-              style={{
-                padding: '4px 10px',
-                fontSize: '0.74rem',
-                borderColor: backendStatus === 'ONLINE' ? 'rgba(0, 255, 102, 0.4)' : 'rgba(255, 170, 0, 0.4)',
-                background: backendStatus === 'ONLINE' ? 'rgba(0, 255, 102, 0.08)' : 'rgba(255, 170, 0, 0.08)'
-              }}
-            >
-              <Activity
-                size={12}
-                color={backendStatus === 'ONLINE' ? 'var(--matrix-green)' : 'var(--neon-amber)'}
-              />
-              <span style={{ color: backendStatus === 'ONLINE' ? 'var(--matrix-green)' : 'var(--neon-amber)' }}>
-                {backendStatus === 'ONLINE' ? 'ATLAS MERN' : 'HYBRID MODE'}
-              </span>
+              {/* MERN Backend API Status Badge */}
+              <div
+                className="glass-pill"
+                title={`Backend Status: ${backendStatus}`}
+                style={{
+                  padding: '4px 10px',
+                  fontSize: '0.74rem',
+                  borderColor: backendStatus === 'ONLINE' ? 'rgba(0, 255, 102, 0.4)' : 'rgba(255, 170, 0, 0.4)',
+                  background: backendStatus === 'ONLINE' ? 'rgba(0, 255, 102, 0.08)' : 'rgba(255, 170, 0, 0.08)'
+                }}
+              >
+                <Activity
+                  size={12}
+                  color={backendStatus === 'ONLINE' ? 'var(--matrix-green)' : 'var(--neon-amber)'}
+                />
+                <span style={{ color: backendStatus === 'ONLINE' ? 'var(--matrix-green)' : 'var(--neon-amber)' }}>
+                  {backendStatus === 'ONLINE' ? 'ATLAS MERN' : 'HYBRID MODE'}
+                </span>
+              </div>
+
+              {/* Matrix FX Toggle */}
+              <button
+                onClick={() => {
+                  sfx.playClick();
+                  setIsMatrixMode(!isMatrixMode);
+                }}
+                title="Toggle Matrix FX Rain"
+                style={{
+                  background: isMatrixMode ? 'rgba(0, 255, 102, 0.2)' : 'rgba(255, 255, 255, 0.05)',
+                  border: `1px solid ${isMatrixMode ? 'var(--matrix-green)' : 'rgba(255, 255, 255, 0.15)'}`,
+                  color: isMatrixMode ? 'var(--matrix-green)' : 'var(--text-muted)',
+                  padding: '7px 10px',
+                  borderRadius: '8px',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.78rem',
+                  transition: 'all 0.3s ease'
+                }}
+              >
+                <Eye size={14} />
+                <span>{isMatrixMode ? 'MATRIX: ON' : 'FX'}</span>
+              </button>
+
+              {/* Audio Mute Button */}
+              <button
+                onClick={handleMuteToggle}
+                title={muted ? 'Unmute Sound FX' : 'Mute Sound FX'}
+                style={{
+                  background: 'rgba(255, 255, 255, 0.05)',
+                  border: '1px solid rgba(255, 255, 255, 0.15)',
+                  color: muted ? 'var(--cyber-magenta)' : 'var(--neon-cyan)',
+                  padding: '7px',
+                  borderRadius: '8px',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+              >
+                {muted ? <VolumeX size={16} /> : <Volume2 size={16} />}
+              </button>
             </div>
-
-            {/* Matrix FX Toggle */}
-            <button
-              onClick={() => {
-                sfx.playClick();
-                setIsMatrixMode(!isMatrixMode);
-              }}
-              title="Toggle Matrix FX Rain"
-              style={{
-                background: isMatrixMode ? 'rgba(0, 255, 102, 0.2)' : 'rgba(255, 255, 255, 0.05)',
-                border: `1px solid ${isMatrixMode ? 'var(--matrix-green)' : 'rgba(255, 255, 255, 0.15)'}`,
-                color: isMatrixMode ? 'var(--matrix-green)' : 'var(--text-muted)',
-                padding: '7px 10px',
-                borderRadius: '8px',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px',
-                fontFamily: 'var(--font-mono)',
-                fontSize: '0.78rem',
-                transition: 'all 0.3s ease'
-              }}
-            >
-              <Eye size={14} />
-              <span className="hide-on-mobile-xs">{isMatrixMode ? 'MATRIX: ON' : 'FX'}</span>
-            </button>
-
-            {/* Audio Mute Button */}
-            <button
-              onClick={handleMuteToggle}
-              title={muted ? 'Unmute Sound FX' : 'Mute Sound FX'}
-              style={{
-                background: 'rgba(255, 255, 255, 0.05)',
-                border: '1px solid rgba(255, 255, 255, 0.15)',
-                color: muted ? 'var(--cyber-magenta)' : 'var(--neon-cyan)',
-                padding: '7px',
-                borderRadius: '8px',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}
-            >
-              {muted ? <VolumeX size={16} /> : <Volume2 size={16} />}
-            </button>
 
             {/* Mobile Hamburger Menu Button */}
             <button
@@ -305,6 +307,7 @@ export default function Navbar({ isMatrixMode, setIsMatrixMode, backendStatus, o
           }
           @media (max-width: 1200px) {
             .desktop-nav { display: none !important; }
+            .desktop-only-controls { display: none !important; }
             .mobile-hamburger-btn { display: flex !important; }
           }
           @media (max-width: 480px) {

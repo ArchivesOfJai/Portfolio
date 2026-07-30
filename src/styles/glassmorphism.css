@@ -317,6 +317,9 @@ input, textarea, select {
   .desktop-nav {
     display: none !important;
   }
+  .desktop-only-controls {
+    display: none !important;
+  }
 }
 
 @media (max-width: 640px) {
