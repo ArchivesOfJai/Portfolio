@@ -102,7 +102,7 @@ export default function Navbar({ isMatrixMode, setIsMatrixMode, backendStatus, o
               gap: '8px',
               textDecoration: 'none',
               fontFamily: 'var(--font-mono)',
-              fontSize: 'clamp(1rem, 3vw, 1.25rem)',
+              fontSize: 'clamp(1.5vw, 3vw, 1.25rem)',
               fontWeight: 700,
               color: '#fff',
               flexShrink: 0
@@ -110,8 +110,8 @@ export default function Navbar({ isMatrixMode, setIsMatrixMode, backendStatus, o
           >
             <div
               style={{
-                width: '34px',
-                height: '34px',
+                width: '30px',
+                height: '30px',
                 borderRadius: '9px',
                 background: 'linear-gradient(135deg, rgba(0, 243, 255, 0.2), rgba(157, 78, 221, 0.3))',
                 border: '1px solid var(--neon-cyan)',
@@ -121,7 +121,7 @@ export default function Navbar({ isMatrixMode, setIsMatrixMode, backendStatus, o
                 boxShadow: '0 0 15px rgba(0, 243, 255, 0.4)'
               }}
             >
-              <Terminal size={18} color="var(--neon-cyan)" />
+              <Terminal size={16} color="var(--neon-cyan)" />
             </div>
             <span>
               &lt;<span className="text-cyan">Geek</span>.Jai_Prakash_Singh/&gt;
