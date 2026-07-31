@@ -32,7 +32,7 @@ export default function Footer() {
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontFamily: 'var(--font-mono)' }}>
           <Terminal size={16} color="var(--neon-cyan)" style={{ flexShrink: 0 }} />
           <span style={{ fontSize: 'clamp(0.78rem, 2.5vw, 0.88rem)', color: 'var(--text-muted)' }}>
-            &copy; {new Date().getFullYear()} Geek.Architect // Built with MERN & Parallax Glass Engine
+            &copy; {new Date().getFullYear()} Geek.Jai 
           </span>
         </div>
 

@@ -61,7 +61,7 @@ export default function Hero({ stats, onLaunchTerminal }) {
           <div>
             <div className="glass-pill" style={{ marginBottom: '18px' }}>
               <ShieldCheck size={14} color="var(--matrix-green)" />
-              <span>SYSTEM ONLINE // PARALLAX UI LOADED</span>
+              <span>SYSTEM ONLINE</span>
             </div>
 
             <h1

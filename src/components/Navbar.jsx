@@ -121,7 +121,7 @@ export default function Navbar({ isMatrixMode, setIsMatrixMode, backendStatus, o
                 boxShadow: '0 0 15px rgba(0, 243, 255, 0.4)'
               }}
             >
-              <Terminal size={16} color="var(--neon-cyan)" />
+              <Terminal size={18} color="var(--neon-cyan)" />
             </div>
             <span>
               &lt;<span className="text-cyan">Geek</span>.Jai/&gt;
@@ -363,7 +363,7 @@ export default function Navbar({ isMatrixMode, setIsMatrixMode, backendStatus, o
                 <Terminal size={16} color="var(--neon-cyan)" />
               </div>
               <span>
-                &lt;<span className="text-cyan">Geek</span>.Architect /&gt;
+                &lt;<span className="text-cyan">Geek</span>.Jai /&gt;
               </span>
             </a>
 

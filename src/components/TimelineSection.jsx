@@ -6,10 +6,10 @@ export default function TimelineSection({ experiences }) {
     <section id="timeline" className="section-wrapper">
       <div className="section-title-badge">
         <GitCommit size={14} />
-        <span>// CAREER & OPEN SOURCE TIMELINE</span>
+        <span>CAREER & OPEN SOURCE TIMELINE</span>
       </div>
 
-      <h2 className="section-heading">System Changelog & History</h2>
+      <h2 className="section-heading">Academics & Professional Journey</h2>
       <p className="section-subheading">
         Tracing career milestones, system refactors, and full-stack achievements.
       </p>
@@ -65,9 +65,13 @@ export default function TimelineSection({ experiences }) {
                 borderRadius: '16px'
               }}
             >
+              <h3 style={{ fontSize: 'clamp(1.1rem, 3.5vw, 1.3rem)', fontWeight: 700, marginBottom: '8px' }}>
+                {exp.role}
+              </h3>
+
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px', marginBottom: '10px' }}>
                 <span className="glass-pill">
-                  <Calendar size={12} />
+                  <Calendar size={14} />
                   <span>{exp.period}</span>
                 </span>
                 <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', color: 'var(--matrix-green)' }}>
@@ -75,9 +79,6 @@ export default function TimelineSection({ experiences }) {
                 </span>
               </div>
 
-              <h3 style={{ fontSize: 'clamp(1.1rem, 3.5vw, 1.3rem)', fontWeight: 700, marginBottom: '8px' }}>
-                {exp.role}
-              </h3>
 
               <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.5, marginBottom: '16px' }}>
                 {exp.description}

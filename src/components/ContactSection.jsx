@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Send, Terminal as TerminalIcon, Mail, Github, Linkedin, Twitter, CheckCircle2, AlertCircle } from 'lucide-react';
 import { sfx } from '../utils/audio';
 import { fetchApi } from '../utils/api';
@@ -7,6 +7,14 @@ export default function ContactSection() {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [loading, setLoading] = useState(false);
   const [statusMsg, setStatusMsg] = useState(null);
+  const [showPopup, setShowPopup] = useState(false);
+  const popupTimerRef = useRef(null);
+
+  useEffect(() => {
+    return () => {
+      if (popupTimerRef.current) clearTimeout(popupTimerRef.current);
+    };
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,6 +27,13 @@ export default function ContactSection() {
 
     setLoading(true);
     setStatusMsg(null);
+
+    // Trigger 3-second success popup notification
+    setShowPopup(true);
+    if (popupTimerRef.current) clearTimeout(popupTimerRef.current);
+    popupTimerRef.current = setTimeout(() => {
+      setShowPopup(false);
+    }, 3000);
 
     try {
       const data = await fetchApi('/api/contact', {
@@ -44,10 +59,52 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="section-wrapper">
+    <section id="contact" className="section-wrapper" style={{ position: 'relative' }}>
+      {/* 3-Second Pop-up Notification */}
+      {showPopup && (
+        <div
+          style={{
+            position: 'fixed',
+            top: '40%',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            zIndex: 99999,
+            background: 'rgba(10, 15, 26, 0.92)',
+            backdropFilter: 'blur(16px)',
+            WebkitBackdropFilter: 'blur(16px)',
+            border: '1px solid var(--matrix-green)',
+            boxShadow: '0 0 25px rgba(0, 255, 102, 0.4), 0 10px 30px rgba(0, 0, 0, 0.6)',
+            borderRadius: '12px',
+            padding: '14px 24px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '12px',
+            color: '#fff',
+            fontFamily: 'var(--font-mono)',
+            fontSize: '0.95rem',
+            overflow: 'hidden',
+            animation: 'toastSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards'
+          }}
+        >
+          <CheckCircle2 size={22} color="var(--matrix-green)" style={{ flexShrink: 0 }} />
+          <span style={{ fontWeight: 600, letterSpacing: '0.5px' }}>successfully sent to Jai</span>
+          <div
+            style={{
+              position: 'absolute',
+              bottom: 0,
+              left: 0,
+              height: '3px',
+              background: 'var(--matrix-green)',
+              borderRadius: '0 0 12px 12px',
+              animation: 'toastProgress 3s linear forwards'
+            }}
+          />
+        </div>
+      )}
+
       <div className="section-title-badge">
         <Mail size={14} />
-        <span>// CONTACT COMMAND CENTER</span>
+        <span>CONTACT COMMAND CENTER</span>
       </div>
 
       <h2 className="section-heading">Initiate Communication</h2>
@@ -160,7 +217,7 @@ export default function ContactSection() {
               />
             </div>
 
-            {statusMsg && (
+            {/* {statusMsg && (
               <div
                 style={{
                   padding: '10px 14px',
@@ -178,7 +235,7 @@ export default function ContactSection() {
                 {statusMsg.type === 'success' ? <CheckCircle2 size={16} /> : <AlertCircle size={16} />}
                 <span>{statusMsg.text}</span>
               </div>
-            )}
+            )} */}
 
             <button type="submit" disabled={loading} className="btn-cyber" style={{ marginTop: '6px', justifyContent: 'center' }}>
               <Send size={18} />
@@ -191,7 +248,7 @@ export default function ContactSection() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <div className="glass-panel" style={{ padding: 'clamp(20px, 4vw, 32px)', borderRadius: '16px' }}>
             <h3 style={{ fontSize: 'clamp(1.1rem, 3.5vw, 1.3rem)', fontWeight: 700, marginBottom: '14px', color: 'var(--neon-cyan)' }}>
-              // DIRECT TELEMETRY CHANNELS
+              DIRECT TELEMETRY CHANNELS
             </h3>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '20px' }}>
               Prefer direct developer communication? Reach out via direct channels or social networks.
@@ -199,7 +256,7 @@ export default function ContactSection() {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               <a
-                href="mailto:dev@portfolio.geek"
+                href="mailto:iamjai2908@gmail.com"
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -216,11 +273,11 @@ export default function ContactSection() {
                 }}
               >
                 <Mail size={18} color="var(--neon-cyan)" style={{ flexShrink: 0 }} />
-                <span>dev@portfolio.geek</span>
+                <span>iamjai2908@gmail.com</span>
               </a>
 
               <a
-                href="https://github.com"
+                href="https://github.com/ArchivesOfJai"
                 target="_blank"
                 rel="noreferrer"
                 style={{
@@ -239,13 +296,14 @@ export default function ContactSection() {
                 }}
               >
                 <Github size={18} color="var(--matrix-green)" style={{ flexShrink: 0 }} />
-                <span>github.com/geekdev</span>
+                <span>github.com/ArchivesOfJai</span>
               </a>
 
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/jaiiprakashsingh"
                 target="_blank"
                 rel="noreferrer"
+
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -262,7 +320,7 @@ export default function ContactSection() {
                 }}
               >
                 <Linkedin size={18} color="var(--cyber-purple)" style={{ flexShrink: 0 }} />
-                <span>linkedin.com/in/geek-architect</span>
+                <span>linkedin.com/in/jaiiprakashsingh</span>
               </a>
             </div>
           </div>
@@ -277,10 +335,10 @@ export default function ContactSection() {
             }}
           >
             <div style={{ fontSize: '0.8rem', fontFamily: 'var(--font-mono)', color: 'var(--neon-cyan)', marginBottom: '4px' }}>
-              LOCATION & TIMEZONE:
+              LOCATION
             </div>
             <div style={{ fontSize: '0.92rem', fontWeight: 600, color: '#fff' }}>
-              Earth // UTC+05:30 (IST) // Available Worldwide Remote
+              India &nbsp;&nbsp;//Available for remote or on-site engagements globally.
             </div>
           </div>
         </div>
@@ -289,6 +347,22 @@ export default function ContactSection() {
       <style>{`
         @media (max-width: 850px) {
           .contact-grid { grid-template-columns: 1fr !important; }
+        }
+
+        @keyframes toastSlideIn {
+          from {
+            opacity: 0;
+            transform: translate(-50%, -20px) scale(0.95);
+          }
+          to {
+            opacity: 1;
+            transform: translate(-50%, 0) scale(1);
+          }
+        }
+
+        @keyframes toastProgress {
+          from { width: 100%; }
+          to { width: 0%; }
         }
       `}</style>
     </section>

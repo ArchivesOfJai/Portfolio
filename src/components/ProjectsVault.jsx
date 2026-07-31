@@ -30,7 +30,7 @@ export default function ProjectsVault({ projects }) {
     <section id="projects" className="section-wrapper">
       <div className="section-title-badge">
         <FolderGit2 size={14} />
-        <span>// REPOSITORY VAULT</span>
+        <span>REPOSITORY VAULT</span>
       </div>
 
       <h2 className="section-heading">Featured Projects</h2>
