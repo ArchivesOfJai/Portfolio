@@ -186,6 +186,7 @@ export default function AdminDashboard({ onBackToPortfolio, onDataChanged }) {
     sfx.playClick();
     localStorage.removeItem('adminToken');
     setIsAuthenticated(false);
+    onBackToPortfolio();
   };
 
   const notifySuccess = (msg) => {
@@ -559,13 +560,13 @@ export default function AdminDashboard({ onBackToPortfolio, onDataChanged }) {
           <form onSubmit={handleAdminLogin} style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
             <div>
               <label style={{ display: 'block', fontSize: '0.8rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', marginBottom: '6px' }}>
-                // ADMIN USERNAME
+                ADMIN USERNAME
               </label>
               <input
                 type="text"
                 value={loginForm.username}
                 onChange={(e) => setLoginForm({ ...loginForm, username: e.target.value })}
-                placeholder="Default: admin"
+                placeholder="username"
                 required
                 style={{
                   width: '100%', padding: '12px 16px', background: 'rgba(5, 7, 10, 0.8)', border: '1px solid rgba(157, 78, 221, 0.3)', borderRadius: '10px', color: '#fff', outline: 'none'
@@ -575,13 +576,13 @@ export default function AdminDashboard({ onBackToPortfolio, onDataChanged }) {
 
             <div>
               <label style={{ display: 'block', fontSize: '0.8rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', marginBottom: '6px' }}>
-                // ADMIN PASSWORD
+                ADMIN PASSWORD
               </label>
               <input
                 type="password"
                 value={loginForm.password}
                 onChange={(e) => setLoginForm({ ...loginForm, password: e.target.value })}
-                placeholder="Default: cybergeek123"
+                placeholder="Password"
                 required
                 style={{
                   width: '100%', padding: '12px 16px', background: 'rgba(5, 7, 10, 0.8)', border: '1px solid rgba(157, 78, 221, 0.3)', borderRadius: '10px', color: '#fff', outline: 'none'
@@ -641,7 +642,7 @@ export default function AdminDashboard({ onBackToPortfolio, onDataChanged }) {
             <span>● DB CONNECTED</span>
           </div>
 
-          <button onClick={loadAllData} className="glass-panel" style={{ padding: '7px 12px', cursor: 'pointer', display: 'flex', gap: '6px', alignItems: 'center' }}>
+          <button onClick={loadAllData} className="glass-panel" style={{ padding: '7px 12px', cursor: 'pointer', display: 'flex', gap: '6px', alignItems: 'center',borderColor: 'var(--matrix-green)', color: 'var(--matrix-green)' }}>
             <RefreshCw size={14} className={loading ? 'animate-spin' : ''} />
             <span style={{ fontSize: '0.78rem', fontFamily: 'var(--font-mono)' }}>Sync DB</span>
           </button>

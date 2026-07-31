@@ -10,11 +10,11 @@ export default function Navbar({ isMatrixMode, setIsMatrixMode, backendStatus, o
   const [activeSection, setActiveSection] = useState('hero');
 
   const navItems = [
-    { id: 'about', label: '// About', mobileLabel: '// About & Architecture' },
-    { id: 'skills', label: '// Skills', mobileLabel: '// Skills Matrix' },
-    { id: 'projects', label: '// Vault', mobileLabel: '// Repository Vault' },
-    { id: 'timeline', label: '// Timeline', mobileLabel: '// Career Changelog' },
-    { id: 'contact', label: '// Contact', mobileLabel: '// Contact Command Center' }
+    { id: 'about', label: 'About', mobileLabel: 'About & Architecture' },
+    { id: 'skills', label: 'Skills', mobileLabel: 'Skills Matrix' },
+    { id: 'projects', label: 'Vault', mobileLabel: 'Repository Vault' },
+    { id: 'timeline', label: 'Timeline', mobileLabel: 'Career Changelog' },
+    { id: 'contact', label: 'Contact', mobileLabel: 'Contact Command Center' }
   ];
 
   useEffect(() => {
@@ -102,7 +102,7 @@ export default function Navbar({ isMatrixMode, setIsMatrixMode, backendStatus, o
               gap: '8px',
               textDecoration: 'none',
               fontFamily: 'var(--font-mono)',
-              fontSize: 'clamp(1.05rem, 3vw, 1.25rem)',
+              fontSize: 'clamp(1rem, 3vw, 1.25rem)',
               fontWeight: 700,
               color: '#fff',
               flexShrink: 0
@@ -398,7 +398,7 @@ export default function Navbar({ isMatrixMode, setIsMatrixMode, backendStatus, o
           <div style={{ padding: '24px 20px 40px', flex: 1, overflowY: 'auto' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '28px' }}>
               <div style={{ fontSize: '0.78rem', color: 'var(--neon-cyan)', fontFamily: 'var(--font-mono)', paddingLeft: '6px', marginBottom: '4px' }}>
-                // NAVIGATION MENU
+                NAVIGATION MENU
               </div>
 
               {navItems.map((item) => {
@@ -427,7 +427,7 @@ export default function Navbar({ isMatrixMode, setIsMatrixMode, backendStatus, o
             {/* System Controls in Mobile Drawer */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', paddingTop: '20px', borderTop: '1px solid rgba(0, 243, 255, 0.15)' }}>
               <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', paddingLeft: '6px' }}>
-                // SYSTEM CONTROLS
+                SYSTEM CONTROLS
               </div>
 
               <button
