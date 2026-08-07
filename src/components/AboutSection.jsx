@@ -13,7 +13,7 @@ export default function AboutSection() {
 
       <h2 className="section-heading">Jai Prakash Singh</h2>
       <p className="section-subheading">
-        A motivated full-stack developer with a passion for creating immersive web experiences. Skilled in React, Node.js, and modern web technologies, I thrive on building applications that are both functional and visually engaging.
+        Full-Stack Systems Architect & High-Performance Web Engineer with expertise in scalable microservices, low-latency React architectures, and cloud-native solutions. Dedicated to engineering robust, clean codebases that bridge backend algorithmic precision with immersive digital interfaces.
       </p>      
     </section>
   );
