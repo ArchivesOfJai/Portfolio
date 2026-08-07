@@ -16,7 +16,7 @@ export default function SkillsMatrix({ skills }) {
     <section id="skills" className="section-wrapper">
       <div className="section-title-badge">
         <Cpu size={14} />
-        <span>// SKILLS & PROFICIENCY MATRIX</span>
+        <span>SKILLS & PROFICIENCY MATRIX</span>
       </div>
 
       <h2 className="section-heading">Technical Capabilities</h2>

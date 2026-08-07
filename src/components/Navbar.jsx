@@ -10,7 +10,7 @@ export default function Navbar({ isMatrixMode, setIsMatrixMode, backendStatus, o
   const [activeSection, setActiveSection] = useState('hero');
 
   const navItems = [
-    { id: 'about', label: 'About', mobileLabel: 'About & Architecture' },
+    { id: 'about', label: 'About', mobileLabel: 'About' },
     { id: 'skills', label: 'Skills', mobileLabel: 'Skills Matrix' },
     { id: 'projects', label: 'Vault', mobileLabel: 'Repository Vault' },
     { id: 'timeline', label: 'Timeline', mobileLabel: 'Career Changelog' },
